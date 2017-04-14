@@ -126,7 +126,7 @@
     <ImageView
         android:layout_width="75dp"
         android:layout_height="75dp"
-        android:src="@drawable/"
+        android:src="@drawable/sthethoscope"
         android:id="@+id/imageView"
         android:layout_alignTop="@+id/textView12"
         android:layout_toEndOf="@+id/textView12"
