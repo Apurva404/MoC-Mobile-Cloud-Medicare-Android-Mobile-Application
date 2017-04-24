@@ -58,7 +58,7 @@
         android:layout_alignStart="@+id/textView16" />
 
     <Button
-        android:text="< Back"
+        android:text="Back"
         android:layout_width="100dp"
         android:layout_height="50dp"
         android:textSize="15dp"
@@ -69,7 +69,7 @@
         android:background="#FA8072" />
 
     <Button
-        android:text="Sign In >"
+        android:text="Sign In"
         android:layout_width="100dp"
         android:layout_height="50dp"
         android:textSize="15dp"

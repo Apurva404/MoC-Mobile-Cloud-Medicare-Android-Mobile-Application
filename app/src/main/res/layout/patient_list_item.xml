@@ -5,7 +5,7 @@
     android:orientation="vertical">
 
     <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
-        android:id="@+id/appointment_card_view"
+        android:id="@+id/patient_card_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
@@ -18,34 +18,26 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_margin="5dip"
-            android:orientation="vertical">
+            android:orientation="horizontal">
 
 
             <TextView
-                android:id="@+id/card_status"
+                android:id="@+id/card_patient_fname"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:padding="6dp"
-                android:text="Attended"
+                android:text="fname"
                 android:textColor="@android:color/white"
                 android:textSize="@dimen/tv_header_size" />
 
 
             <TextView
-                android:id="@+id/card_patient_name"
+                android:id="@+id/card_patient_lname"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginRight="5dp"
                 android:layout_marginTop="5dp"
-                android:text="Sindhya"
-                android:textSize="@dimen/tv_body_size" />
-
-
-            <TextView
-                android:id="@+id/card_date"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Apr 10, 2017 9 pm"
+                android:text="lname"
                 android:textSize="@dimen/tv_body_size" />
 
 

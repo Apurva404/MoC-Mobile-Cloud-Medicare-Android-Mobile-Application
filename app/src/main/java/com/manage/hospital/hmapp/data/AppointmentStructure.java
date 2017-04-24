@@ -24,5 +24,17 @@ public class AppointmentStructure {
         }
     }
 
+    public String getPatient_name() {
+        return patient_name;
+    }
+
+
+    public String getAppointment_date_time() {
+        return appointment_date_time;
+    }
+
+    public String getAppointment_status() {
+        return appointment_status;
+    }
 
 }

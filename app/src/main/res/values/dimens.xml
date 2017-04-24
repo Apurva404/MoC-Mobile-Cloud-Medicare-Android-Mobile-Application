@@ -7,4 +7,9 @@
     <dimen name="tv_header_size">20sp</dimen>
     <dimen name="tv_body_size">16sp</dimen>
 
+    <!--card layout-->
+    <dimen name="card_elevation">4dp</dimen>
+    <dimen name="card_corner_radius">3dp</dimen>
+    <dimen name="card_margin">10dp</dimen>
+
 </resources>

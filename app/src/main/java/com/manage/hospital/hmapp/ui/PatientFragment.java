@@ -1,6 +1,5 @@
 package com.manage.hospital.hmapp.ui;
 
-
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -14,17 +13,18 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ListView;
 
 import com.manage.hospital.hmapp.R;
 import com.manage.hospital.hmapp.adapter.AppointmentListAdapter;
+import com.manage.hospital.hmapp.adapter.PatientListAdapter;
 import com.manage.hospital.hmapp.data.AppointmentData;
 import com.manage.hospital.hmapp.data.AppointmentStructure;
+import com.manage.hospital.hmapp.data.PatientData;
+import com.manage.hospital.hmapp.data.PatientStructure;
 import com.manage.hospital.hmapp.utility.ConfigConstant;
 
 import org.json.JSONArray;
 import org.json.JSONException;
-import org.json.JSONObject;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -32,17 +32,16 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.List;
 
 /**
- * Created by sindhya on 4/13/17.
+ * Created by sindhya on 4/18/17.
  */
-public class AppointmentFragment extends Fragment implements SwipeRefreshLayout.OnRefreshListener{
+public class PatientFragment extends Fragment implements SwipeRefreshLayout.OnRefreshListener {
+
 
     private SwipeRefreshLayout swipeRefreshLayout;
-    private RecyclerView recyclerViewAppointment;
-    AppointmentListAdapter appointmentListAdapter;
+    private RecyclerView recyclerViewPatient;
+    PatientListAdapter patientListAdapter;
 
     @Nullable
     @Override
@@ -52,13 +51,13 @@ public class AppointmentFragment extends Fragment implements SwipeRefreshLayout.
         swipeRefreshLayout=(SwipeRefreshLayout)root_view.findViewById(R.id.appointment_swipe_refresh_layout);
         swipeRefreshLayout.setOnRefreshListener(this);
 
-        recyclerViewAppointment=(RecyclerView) root_view.findViewById(R.id.appointment_list_view);
+        recyclerViewPatient=(RecyclerView) root_view.findViewById(R.id.appointment_list_view);
         LinearLayoutManager linearLayoutManager=new LinearLayoutManager(getContext());
         linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
         RecyclerView.LayoutManager layoutManager=linearLayoutManager;
 
-        recyclerViewAppointment.setLayoutManager(layoutManager);
-        recyclerViewAppointment.setItemAnimator(new DefaultItemAnimator());
+        recyclerViewPatient.setLayoutManager(layoutManager);
+        recyclerViewPatient.setItemAnimator(new DefaultItemAnimator());
 
         getAppointmentList();
 
@@ -67,58 +66,56 @@ public class AppointmentFragment extends Fragment implements SwipeRefreshLayout.
     }
 
     public void getAppointmentList(){
-        FetchAppointmentListTask fetchAppointmentListTask=new FetchAppointmentListTask();
-        fetchAppointmentListTask.execute();
+        FetchPatientListTask fetchPatientListTask=new FetchPatientListTask();
+        fetchPatientListTask.execute();
     }
 
     @Override
     public void onRefresh() {
 
         getAppointmentList();
-
     }
 
+    public class FetchPatientListTask extends AsyncTask<Void,Void,PatientData> {
 
-    public class FetchAppointmentListTask extends AsyncTask<Void,Void,AppointmentData> {
+        private final String LOG_TAG=FetchPatientListTask.class.getSimpleName();
 
-        private final String LOG_TAG=FetchAppointmentListTask.class.getSimpleName();
+        private PatientData getPatientListFromJson(String appJsonStr) throws JSONException {
 
-        private AppointmentData getAppointmentListFromJson(String appJsonStr) throws JSONException {
-
-            AppointmentData appointmentData=AppointmentData.getInstance();
-            AppointmentStructure appObj;
+            PatientData patientData=PatientData.getInstance();
+            PatientStructure patObj;
             JSONArray jsonArray=new JSONArray(appJsonStr);
 
             for(int i=0;i<jsonArray.length();i++){
 
-                appObj=new AppointmentStructure(jsonArray.getJSONObject(i));
-                appointmentData.add(appObj);
+                patObj=new PatientStructure(jsonArray.getJSONObject(i));
+                patientData.add(patObj);
 
             }
 
-            return appointmentData;
+            return patientData;
 
         }
 
 
         @Override
-        protected AppointmentData doInBackground(Void... voids) {
+        protected PatientData doInBackground(Void... voids) {
 
 
             HttpURLConnection urlConnection=null;
             BufferedReader reader=null;
 
-            String appListJson=null;
+            String patListJson=null;
 
             try{
                 String baseUrl= ConfigConstant.BASE_URL;
-                final String PATH_PARAM = ConfigConstant.DOC_APPOINTMENT_LIST_ENDPOINT;
+                final String PATH_PARAM = ConfigConstant.DOC_PATIENT_LIST_ENDPOINT;
 
 
 
-                Uri appointmtUri=Uri.parse(baseUrl).buildUpon().appendPath(PATH_PARAM).build();
+                Uri patUri=Uri.parse(baseUrl).buildUpon().appendPath(PATH_PARAM).build();
 
-                URL url=new URL(appointmtUri.toString());
+                URL url=new URL(patUri.toString());
 
                 urlConnection = (HttpURLConnection) url.openConnection();
                 urlConnection.setRequestMethod("GET");
@@ -143,10 +140,10 @@ public class AppointmentFragment extends Fragment implements SwipeRefreshLayout.
                     return null;
                 }
 
-                appListJson=buffer.toString();
+                patListJson=buffer.toString();
 
 
-                Log.v(LOG_TAG,"AppointmentListStr: "+appListJson);
+                Log.v(LOG_TAG,"PatientListStr: "+patListJson);
 
             }catch (IOException e){
 
@@ -169,7 +166,7 @@ public class AppointmentFragment extends Fragment implements SwipeRefreshLayout.
             }
 
             try{
-                return getAppointmentListFromJson(appListJson);
+                return getPatientListFromJson(patListJson);
             }catch (JSONException e){
                 Log.e(LOG_TAG,e.getMessage(),e);
                 e.printStackTrace();
@@ -180,15 +177,17 @@ public class AppointmentFragment extends Fragment implements SwipeRefreshLayout.
 
 
         @Override
-        protected void onPostExecute(AppointmentData result){
+        protected void onPostExecute(PatientData result){
             if(result!=null){
 
                 //TODO: set the adapter
-                //appointmentListAdapter=new AppointmentListAdapter(getContext())
-                appointmentListAdapter=new AppointmentListAdapter(getContext(),result.data);
-                recyclerViewAppointment.setAdapter(appointmentListAdapter);
+
+                patientListAdapter=new PatientListAdapter(getContext(),result.data);
+                recyclerViewPatient.setAdapter(patientListAdapter);
             }
         }
     }
+
+
 
 }
