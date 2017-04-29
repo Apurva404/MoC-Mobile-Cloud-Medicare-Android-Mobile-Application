@@ -13,14 +13,14 @@ import android.view.View;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import com.manage.hospital.hmapp.Extras.Interface.DocDashboardFragmentToActivity;
+import com.manage.hospital.hmapp.Extras.Interface.PatientDashboardFragmentToActivity;
 import com.manage.hospital.hmapp.R;
 import com.manage.hospital.hmapp.adapter.NavigationListAdapter;
 import com.manage.hospital.hmapp.data.NavDrawerItem;
 
 import java.util.ArrayList;
 
-public class DoctorMainActivity extends AppCompatActivity implements DocDashboardFragmentToActivity {
+public class PatientMainActivity extends AppCompatActivity implements PatientDashboardFragmentToActivity {
 
     private String[] drawerTitleArray;
     private TypedArray drawerIconsArray;
@@ -41,14 +41,14 @@ public class DoctorMainActivity extends AppCompatActivity implements DocDashboar
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_doctor_main);
+        setContentView(R.layout.activity_patient_main);
 
         setListeners();
 
         if(savedInstanceState==null){
-            Fragment fragment=new DoctorDashboardFragment();
+            Fragment fragment=new PatientDashboardFragment();
             FragmentManager fragmentManager=getSupportFragmentManager();
-            fragmentManager.beginTransaction().replace(R.id.doctor_content_frame,fragment).commit();
+            fragmentManager.beginTransaction().replace(R.id.patient_content_frame,fragment).commit();
         }
 
 
@@ -102,7 +102,6 @@ public class DoctorMainActivity extends AppCompatActivity implements DocDashboar
         super.onPostCreate(savedInstanceState);
         drawerToggle.syncState();
     }
-
 
     @Override
     public void onFragmentInteraction() {

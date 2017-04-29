@@ -26,7 +26,7 @@
         </LinearLayout>
 
         <FrameLayout
-            android:id="@+id/doctor_content_frame"
+            android:id="@+id/patient_content_frame"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@color/colorWhite">

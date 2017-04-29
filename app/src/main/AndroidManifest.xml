@@ -15,7 +15,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity
             android:name=".ui.AppointmentActivity"
             android:theme="@style/AppTheme" />
@@ -26,7 +25,7 @@
             android:name=".ui.PatientActivity"
             android:theme="@style/AppTheme" />
 
-
+        <activity android:name=".ui.PatientMainActivity"/>
     </application>
 
 </manifest>

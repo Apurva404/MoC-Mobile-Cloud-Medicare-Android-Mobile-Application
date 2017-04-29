@@ -1,7 +1,6 @@
 package com.manage.hospital.hmapp.ui;
 
 import android.content.Context;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -9,15 +8,17 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.manage.hospital.hmapp.Extras.Interface.DocDashboardFragmentToActivity;
+import com.manage.hospital.hmapp.Extras.Interface.PatientDashboardFragmentToActivity;
 import com.manage.hospital.hmapp.R;
 
+/**
+ * Created by sindhya on 4/29/17.
+ */
+public class PatientDashboardFragment extends Fragment {
 
-public class DoctorDashboardFragment extends Fragment {
+    private PatientDashboardFragmentToActivity mListener;
 
-
-    private DocDashboardFragmentToActivity mListener;
-
-    public DoctorDashboardFragment() {
+    public PatientDashboardFragment() {
 
     }
 
@@ -30,7 +31,7 @@ public class DoctorDashboardFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        return inflater.inflate(R.layout.fragment_doctor_dashboard, container, false);
+        return inflater.inflate(R.layout.fragment_patient_dashboard, container, false);
     }
 
 
@@ -43,8 +44,8 @@ public class DoctorDashboardFragment extends Fragment {
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
-        if (context instanceof DocDashboardFragmentToActivity) {
-            mListener = (DocDashboardFragmentToActivity) context;
+        if (context instanceof PatientDashboardFragmentToActivity) {
+            mListener = (PatientDashboardFragmentToActivity) context;
         } else {
             throw new RuntimeException(context.toString()
                     + " must implement OnFragmentInteractionListener");
@@ -56,5 +57,4 @@ public class DoctorDashboardFragment extends Fragment {
         super.onDetach();
         mListener = null;
     }
-
 }
