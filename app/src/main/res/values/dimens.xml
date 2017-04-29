@@ -12,4 +12,7 @@
     <dimen name="card_corner_radius">3dp</dimen>
     <dimen name="card_margin">10dp</dimen>
 
+    <!--font size-->
+    <dimen name="tv_body_content">16sp</dimen>
+
 </resources>

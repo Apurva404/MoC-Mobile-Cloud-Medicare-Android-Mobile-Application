@@ -1,3 +1,25 @@
 <resources>
     <string name="app_name">HospitalManagement</string>
+
+    <string name="team_name">Appoholics</string>
+
+    <!--Doctor home activity-->
+    <string name="home_activity_title">Home</string>
+
+    <!--Home screen menu title-->
+    <string-array name="nav_drawer_items">
+        <item>Home</item>
+        <item>Appointments</item>
+        <item>Log Out</item>
+    </string-array>
+    <array name="nav_drawer_icons">
+        <item>@drawable/menu_home</item>
+        <item>@drawable/menu_home</item>
+        <item>@drawable/menu_home</item>
+    </array>
+
+    <!--Dashboard fragment-->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+
 </resources>

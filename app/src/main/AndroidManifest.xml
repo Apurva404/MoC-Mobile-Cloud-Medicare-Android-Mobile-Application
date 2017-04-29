@@ -7,14 +7,26 @@
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
-        <activity android:name=".ui.MainActivity">
+        android:theme="@style/NoActionBarTheme">
+        <activity android:name=".ui.DoctorMainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity
+            android:name=".ui.AppointmentActivity"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".ui.AppointmentDetailActivity"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".ui.PatientActivity"
+            android:theme="@style/AppTheme" />
+
+
     </application>
 
 </manifest>
