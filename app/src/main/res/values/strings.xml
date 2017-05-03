@@ -7,19 +7,45 @@
     <string name="home_activity_title">Home</string>
 
     <!--Home screen menu title-->
-    <string-array name="nav_drawer_items">
+    <string-array name="doc_nav_drawer_items">
         <item>Home</item>
         <item>Appointments</item>
         <item>Log Out</item>
     </string-array>
-    <array name="nav_drawer_icons">
+    <array name="doc_nav_drawer_icons">
         <item>@drawable/menu_home</item>
         <item>@drawable/menu_home</item>
         <item>@drawable/menu_home</item>
     </array>
 
+
+    <string-array name="pat_nav_drawer_items">
+        <item>Home</item>
+        <item>Appointments</item>
+        <item>Sources</item>
+        <item>Log Out</item>
+    </string-array>
+    <array name="pat_nav_drawer_icons">
+        <item>@drawable/menu_home</item>
+        <item>@drawable/menu_home</item>
+        <item>@drawable/menu_home</item>
+        <item>@drawable/menu_home</item>
+    </array>
+
+
     <!--Dashboard fragment-->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
+
+    <!--Source Activity-->
+    <string name="source_activity_title">Source</string>
+
+    <!--Fitbit Activity-->
+    <string name="fitbit_token">#access_token</string>
+    <string name="fitbit_uid">&amp;user_id</string>
+    <string name="fitbit_token_type">&amp;token_type</string>
+    <string name="fibit_scope">&amp;scope</string>
+    <string name="fitbit_token_expiry">&amp;expires_in</string>
 
 
 </resources>

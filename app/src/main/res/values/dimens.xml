@@ -3,16 +3,21 @@
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
 
+    <!--font size-->
+    <dimen name="title_big_font_size">24sp</dimen>
     <dimen name="title_font_size">22sp</dimen>
     <dimen name="tv_header_size">20sp</dimen>
     <dimen name="tv_body_size">16sp</dimen>
+    <dimen name="tv_body_content">16sp</dimen>
+    <dimen name="tv_font_size">20sp</dimen>
 
     <!--card layout-->
     <dimen name="card_elevation">4dp</dimen>
     <dimen name="card_corner_radius">3dp</dimen>
     <dimen name="card_margin">10dp</dimen>
 
-    <!--font size-->
-    <dimen name="tv_body_content">16sp</dimen>
+
+    <!--margin-->
+    <dimen name="et_padding">5dp</dimen>
 
 </resources>

@@ -63,8 +63,8 @@ public class DoctorMainActivity extends AppCompatActivity implements DocDashboar
 
         drawerMenuLayout=(DrawerLayout)findViewById(R.id.drawer_menu_layout);
         drawerList = (ListView) findViewById(R.id.drawer_list);
-        drawerTitleArray=getResources().getStringArray(R.array.nav_drawer_items);
-        drawerIconsArray=getResources().obtainTypedArray(R.array.nav_drawer_icons);
+        drawerTitleArray=getResources().getStringArray(R.array.doc_nav_drawer_items);
+        drawerIconsArray=getResources().obtainTypedArray(R.array.doc_nav_drawer_icons);
 
         navDrawerItems=new ArrayList<NavDrawerItem>();
 
