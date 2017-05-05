@@ -1,15 +1,18 @@
 package com.manage.hospital.hmapp.ui;
 
+import android.content.Intent;
 import android.content.res.TypedArray;
 import android.net.Uri;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
+import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -81,7 +84,7 @@ public class DoctorMainActivity extends AppCompatActivity implements DocDashboar
 
                 if(isMenuItemClicked) {
                     int position=drawerList.getCheckedItemPosition();
-                    //displayActivity(position);
+                    displayActivity(position);
                     isMenuItemClicked=false;
                 }
                 invalidateOptionsMenu();
@@ -93,9 +96,30 @@ public class DoctorMainActivity extends AppCompatActivity implements DocDashboar
         };
 
         drawerMenuLayout.addDrawerListener(drawerToggle);
+        drawerList.setOnItemClickListener(new MenuItemClickListener());
+    }
+
+    public void displayActivity(int position){
+        switch (position){
+            case 1:
+                Intent intent=new Intent(DoctorMainActivity.this,AppointmentActivity.class);
+                startActivity(intent);
+
+        }
 
     }
 
+    private class MenuItemClickListener implements ListView.OnItemClickListener{
+        @Override
+        public void onItemClick(AdapterView<?> parent, View view, int position, long id){
+
+            isMenuItemClicked=true;
+            //drawerList.setItemChecked(position,true);
+            //drawerList.setSelection(position);
+            drawerMenuLayout.closeDrawer(GravityCompat.START);
+            //displayActivity(position);
+        }
+    }
 
     @Override
     protected void onPostCreate(Bundle savedInstanceState) {

@@ -75,6 +75,7 @@ public class AppointmentFragment extends Fragment implements SwipeRefreshLayout.
     public void onRefresh() {
 
         getAppointmentList();
+        swipeRefreshLayout.setRefreshing(false);
 
     }
 
@@ -86,6 +87,7 @@ public class AppointmentFragment extends Fragment implements SwipeRefreshLayout.
         private AppointmentData getAppointmentListFromJson(String appJsonStr) throws JSONException {
 
             AppointmentData appointmentData=AppointmentData.getInstance();
+            appointmentData.clear();
             AppointmentStructure appObj;
             JSONArray jsonArray=new JSONArray(appJsonStr);
 
@@ -113,10 +115,10 @@ public class AppointmentFragment extends Fragment implements SwipeRefreshLayout.
             try{
                 String baseUrl= ConfigConstant.BASE_URL;
                 final String PATH_PARAM = ConfigConstant.DOC_APPOINTMENT_LIST_ENDPOINT;
+                final String DOCTOR_ID="1";
 
 
-
-                Uri appointmtUri=Uri.parse(baseUrl).buildUpon().appendPath(PATH_PARAM).build();
+                Uri appointmtUri=Uri.parse(baseUrl).buildUpon().appendEncodedPath(PATH_PARAM).appendEncodedPath(DOCTOR_ID).build();
 
                 URL url=new URL(appointmtUri.toString());
 
@@ -182,11 +184,12 @@ public class AppointmentFragment extends Fragment implements SwipeRefreshLayout.
         @Override
         protected void onPostExecute(AppointmentData result){
             if(result!=null){
-
-                //TODO: set the adapter
-                //appointmentListAdapter=new AppointmentListAdapter(getContext())
-                appointmentListAdapter=new AppointmentListAdapter(getContext(),result.data);
-                recyclerViewAppointment.setAdapter(appointmentListAdapter);
+                if(appointmentListAdapter==null) {
+                    appointmentListAdapter = new AppointmentListAdapter(getContext(), result.data);
+                    recyclerViewAppointment.setAdapter(appointmentListAdapter);
+                }else{
+                    appointmentListAdapter.notifyDataSetChanged();
+                }
             }
         }
     }

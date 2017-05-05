@@ -38,4 +38,7 @@ public class AppointmentData {
         return data.size();
     }
 
+    public void clear(){
+        data.clear();
+    }
 }

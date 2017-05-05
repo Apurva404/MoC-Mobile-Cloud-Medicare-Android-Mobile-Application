@@ -13,11 +13,12 @@
 
     <!--card layout-->
     <dimen name="card_elevation">4dp</dimen>
-    <dimen name="card_corner_radius">3dp</dimen>
+    <dimen name="card_corner_radius">1dp</dimen>
     <dimen name="card_margin">10dp</dimen>
 
 
     <!--margin-->
     <dimen name="et_padding">5dp</dimen>
+    <dimen name="btn_padding">10dp</dimen>
 
 </resources>

@@ -38,13 +38,16 @@ public class FitbitActivity extends AppCompatActivity {
         boolean tokenAvail=fitbitSharedPref.getBoolean(FitbitReferences.HAS_ACCESS_TOKEN,false);
 
         if(!tokenAvail){
-            getSupportFragmentManager().beginTransaction().replace(R.id.frame_content_fitbit,new FitBitDetailsFragment()).addToBackStack(null).commit();
+            Log.d("No token",fitbitSharedPref.getString(FitbitReferences.FITBIT_TOKEN,""));
+
         }else{
             Log.d("Token","I have token");
             Log.d("Token",fitbitSharedPref.getString(FitbitReferences.FITBIT_TOKEN,""));
             Log.d("UID",fitbitSharedPref.getString(FitbitReferences.FITBIT_UID,""));
             Log.d("Token type",fitbitSharedPref.getString(FitbitReferences.FITBIT_TOKEN_TYPE,""));
         }
+
+        getSupportFragmentManager().beginTransaction().replace(R.id.frame_content_fitbit,new FitBitDetailsFragment()).addToBackStack(null).commit();
 
     }
 }

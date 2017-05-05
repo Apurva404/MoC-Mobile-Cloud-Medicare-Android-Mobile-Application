@@ -12,6 +12,9 @@ import android.widget.TextView;
 import com.manage.hospital.hmapp.data.AppointmentStructure;
 import com.manage.hospital.hmapp.R;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -40,10 +43,28 @@ public class AppointmentListAdapter extends RecyclerView.Adapter<AppointmentList
     public void onBindViewHolder(AppointmentViewHolder holder, int position) {
 
         AppointmentStructure appObj = appointmentList.get(position);
-        holder.patientName.setText(appObj.getPatient_name());
-        holder.status.setText(appObj.getAppointment_status());
-        holder.appDate.setText(appObj.getAppointment_date_time());
+        //holder.patientName.setText(appObj.getPatient_name());
+        if(appObj.getAppointment_status().equals("Not Completed")) {
+            holder.status.setText("Not Attended");
+        }
+        String date=converDate(appObj.getAppointment_date_time());
+        holder.appDate.setText(date);
+        holder.appDesc.setText(appObj.getAppointment_desc());
 
+    }
+
+    private String converDate(String input_date){
+        SimpleDateFormat inputDateFormat=new SimpleDateFormat("yyyy-mm-dd");
+        Date p_date=null;
+        try{
+            p_date=inputDateFormat.parse(input_date);
+        }catch (ParseException e){
+            e.printStackTrace();
+        }
+
+        SimpleDateFormat finalDateFormat=new SimpleDateFormat("MMM dd, yyyy");
+        String finalDate=finalDateFormat.format(p_date);
+        return finalDate;
     }
 
     @Override
@@ -53,15 +74,18 @@ public class AppointmentListAdapter extends RecyclerView.Adapter<AppointmentList
 
     public class AppointmentViewHolder extends RecyclerView.ViewHolder {
 
-        TextView patientName, status, appDate;
+        TextView patientName, status, appDate,appDesc;
 
         public AppointmentViewHolder(View itemView) {
             super(itemView);
 
-            patientName = (TextView) itemView.findViewById(R.id.card_patient_name);
+            //patientName = (TextView) itemView.findViewById(R.id.card_patient_name);
             status = (TextView) itemView.findViewById(R.id.card_status);
             appDate = (TextView) itemView.findViewById(R.id.card_date);
+            appDesc=(TextView)itemView.findViewById(R.id.card_app_desc);
 
         }
+
     }
+
 }

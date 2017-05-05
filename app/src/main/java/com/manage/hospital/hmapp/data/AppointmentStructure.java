@@ -12,13 +12,15 @@ public class AppointmentStructure {
     public String patient_name;
     public String appointment_date_time;
     public String appointment_status;
+    public String appointment_desc;
 
     public AppointmentStructure(JSONObject jsonObject){
 
         try {
-            patient_name = jsonObject.getString("");
-            appointment_date_time = jsonObject.getString("");
-            appointment_status = jsonObject.getString("");
+            //patient_name = jsonObject.getString("");
+            appointment_date_time = jsonObject.getString("Remider_Date");
+            appointment_status = jsonObject.getString("Appointment_Status");
+            appointment_desc=jsonObject.getString("Description");
         }catch (JSONException e){
             e.printStackTrace();
         }
@@ -37,4 +39,7 @@ public class AppointmentStructure {
         return appointment_status;
     }
 
+    public String getAppointment_desc() {
+        return appointment_desc;
+    }
 }

@@ -19,6 +19,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.LinearLayout;
 
 import com.manage.hospital.hmapp.R;
 import com.manage.hospital.hmapp.utility.ConfigConstant;
@@ -30,6 +31,8 @@ public class FitBitDetailsFragment extends Fragment {
 
     SharedPreferences sharedPref;
     Button btnLogin;
+    Button btnLogout;
+    //LinearLayout layoutFitbitControls;
 
     private CustomTabsClient customTabsClient;
     private CustomTabsIntent customTabsIntent;
@@ -45,6 +48,8 @@ public class FitBitDetailsFragment extends Fragment {
 
         View view=inflater.inflate(R.layout.fragment_fit_bit_details,container,false);
         btnLogin=(Button)view.findViewById(R.id.fitbit_login_button);
+        btnLogout=(Button)view.findViewById(R.id.fitbit_logout_button);
+        //layoutFitbitControls=(LinearLayout)view.findViewById(R.id.fitbit_controls_layout);
 
 
         return view;
@@ -83,11 +88,20 @@ public class FitBitDetailsFragment extends Fragment {
 
         isAuthorized=sharedPref.getBoolean(FitbitReferences.HAS_ACCESS_TOKEN,false);
 
+        if(!isAuthorized){
+            btnLogin.setVisibility(View.VISIBLE);
+            btnLogout.setVisibility(View.INVISIBLE);
+        }else{
+            btnLogout.setVisibility(View.VISIBLE);
+            btnLogin.setVisibility(View.INVISIBLE);
+            //layoutFitbitControls.setVisibility(View.VISIBLE);
+        }
+
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 if(!isAuthorized){
-                    String fitbit_auth_url=ConfigConstant.FITBIT_BASE_URL;
+                    String fitbit_auth_url=ConfigConstant.FITBIT_AUTH_URL;
                     customTabsIntent.launchUrl(getActivity(),Uri.parse(fitbit_auth_url));
                 }else{
                     Log.d("Log","Already logged in");

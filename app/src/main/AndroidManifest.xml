@@ -2,13 +2,15 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.manage.hospital.hmapp">
 
+    <uses-permission android:name="android.permission.INTERNET"/>
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/NoActionBarTheme">
-        <activity android:name=".ui.PatientMainActivity">
+        <activity android:name=".ui.DoctorMainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -25,7 +27,7 @@
             android:name=".ui.PatientActivity"
             android:theme="@style/AppTheme" />
         <activity
-            android:name=".ui.DoctorMainActivity" />
+            android:name=".ui.PatientMainActivity" />
         <activity
             android:name=".ui.PatientSourceActivity"
             android:theme="@style/AppTheme" />
