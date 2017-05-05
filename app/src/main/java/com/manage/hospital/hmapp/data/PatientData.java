@@ -37,4 +37,8 @@ public class PatientData {
     public int getSize(){
         return data.size();
     }
+
+    public void clear(){
+        data.clear();
+    }
 }

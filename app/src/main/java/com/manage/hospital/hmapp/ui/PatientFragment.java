@@ -47,11 +47,11 @@ public class PatientFragment extends Fragment implements SwipeRefreshLayout.OnRe
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
-        View root_view=inflater.inflate(R.layout.fragment_appointment,container,false);
-        swipeRefreshLayout=(SwipeRefreshLayout)root_view.findViewById(R.id.appointment_swipe_refresh_layout);
+        View root_view=inflater.inflate(R.layout.fragment_doctor_patients,container,false);
+        swipeRefreshLayout=(SwipeRefreshLayout)root_view.findViewById(R.id.patients_swipe_refresh_layout);
         swipeRefreshLayout.setOnRefreshListener(this);
 
-        recyclerViewPatient=(RecyclerView) root_view.findViewById(R.id.appointment_list_view);
+        recyclerViewPatient=(RecyclerView) root_view.findViewById(R.id.patient_list_view);
         LinearLayoutManager linearLayoutManager=new LinearLayoutManager(getContext());
         linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
         RecyclerView.LayoutManager layoutManager=linearLayoutManager;
@@ -74,6 +74,7 @@ public class PatientFragment extends Fragment implements SwipeRefreshLayout.OnRe
     public void onRefresh() {
 
         getAppointmentList();
+        swipeRefreshLayout.setRefreshing(false);
     }
 
     public class FetchPatientListTask extends AsyncTask<Void,Void,PatientData> {
@@ -83,6 +84,7 @@ public class PatientFragment extends Fragment implements SwipeRefreshLayout.OnRe
         private PatientData getPatientListFromJson(String appJsonStr) throws JSONException {
 
             PatientData patientData=PatientData.getInstance();
+            patientData.clear();
             PatientStructure patObj;
             JSONArray jsonArray=new JSONArray(appJsonStr);
 
@@ -110,10 +112,11 @@ public class PatientFragment extends Fragment implements SwipeRefreshLayout.OnRe
             try{
                 String baseUrl= ConfigConstant.BASE_URL;
                 final String PATH_PARAM = ConfigConstant.DOC_PATIENT_LIST_ENDPOINT;
+                final String DOC_ID="1";
 
 
 
-                Uri patUri=Uri.parse(baseUrl).buildUpon().appendPath(PATH_PARAM).build();
+                Uri patUri=Uri.parse(baseUrl).buildUpon().appendEncodedPath(PATH_PARAM).appendEncodedPath(DOC_ID).build();
 
                 URL url=new URL(patUri.toString());
 
@@ -180,10 +183,12 @@ public class PatientFragment extends Fragment implements SwipeRefreshLayout.OnRe
         protected void onPostExecute(PatientData result){
             if(result!=null){
 
-                //TODO: set the adapter
-
-                patientListAdapter=new PatientListAdapter(getContext(),result.data);
-                recyclerViewPatient.setAdapter(patientListAdapter);
+                if(patientListAdapter==null) {
+                    patientListAdapter = new PatientListAdapter(getContext(), result.data);
+                    recyclerViewPatient.setAdapter(patientListAdapter);
+                }else{
+                    patientListAdapter.notifyDataSetChanged();
+                }
             }
         }
     }

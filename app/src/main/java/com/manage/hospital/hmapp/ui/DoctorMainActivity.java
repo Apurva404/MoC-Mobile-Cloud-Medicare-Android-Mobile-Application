@@ -104,7 +104,11 @@ public class DoctorMainActivity extends AppCompatActivity implements DocDashboar
             case 1:
                 Intent intent=new Intent(DoctorMainActivity.this,AppointmentActivity.class);
                 startActivity(intent);
-
+                break;
+            case 2:
+                Intent pat_intent=new Intent(DoctorMainActivity.this,PatientActivity.class);
+                startActivity(pat_intent);
+                break;
         }
 
     }

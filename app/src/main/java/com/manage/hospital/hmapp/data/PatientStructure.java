@@ -58,23 +58,20 @@ public class PatientStructure {
     public PatientStructure(JSONObject jsonObject){
 
         try {
-            patient_fname=jsonObject.getString("");
-            patient_lname=jsonObject.getString("");
-            dob=jsonObject.getString("");
-            gender=jsonObject.getString("");
-            weight=jsonObject.getString("");
-            age=jsonObject.getString("");
-            email=jsonObject.getString("");
-            contact_num=jsonObject.getString("");
-            address=jsonObject.getString("");
+            patient_fname=jsonObject.getString("Firstname");
+            patient_lname=jsonObject.getString("Lastname");
+            dob=jsonObject.getString("DOB");
+            gender=jsonObject.getString("Gender");
+            weight=jsonObject.getString("Weight");
+            age=jsonObject.getString("Age");
+            email=jsonObject.getString("Email_Id");
+            contact_num=jsonObject.getString("ContactNo");
+            address=jsonObject.getString("Address");
 
 
         }catch (JSONException e){
             e.printStackTrace();
         }
-
-
-
 
     }
 }

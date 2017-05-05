@@ -20,7 +20,7 @@ public class PatientActivity extends AppCompatActivity {
         if(savedInstanceState==null){
             Fragment fragment=new PatientFragment();
             FragmentManager fragmentManager=getSupportFragmentManager();
-            fragmentManager.beginTransaction().replace(R.id.frame_appointments,fragment).commit();
+            fragmentManager.beginTransaction().replace(R.id.frame_patient,fragment).commit();
         }
     }
 

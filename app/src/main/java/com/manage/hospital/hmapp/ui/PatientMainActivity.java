@@ -115,7 +115,7 @@ public class PatientMainActivity extends AppCompatActivity implements PatientDas
             case 2:
                 Intent intent=new Intent(PatientMainActivity.this,PatientSourceActivity.class);
                 startActivity(intent);
-
+                break;
         }
 
     }

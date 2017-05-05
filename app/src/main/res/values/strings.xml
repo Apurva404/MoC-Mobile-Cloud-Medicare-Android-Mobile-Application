@@ -15,9 +15,9 @@
     </string-array>
     <array name="doc_nav_drawer_icons">
         <item>@drawable/menu_home</item>
-        <item>@drawable/menu_home</item>
-        <item>@drawable/menu_home</item>
-        <item>@drawable/menu_home</item>
+        <item>@drawable/ic_appointment</item>
+        <item>@drawable/ic_patients</item>
+        <item>@drawable/ic_logout</item>
     </array>
 
     <!--Doctor Appointment Activity-->
@@ -34,7 +34,7 @@
         <item>@drawable/menu_home</item>
         <item>@drawable/menu_home</item>
         <item>@drawable/menu_home</item>
-        <item>@drawable/menu_home</item>
+        <item>@drawable/ic_logout</item>
     </array>
 
 
