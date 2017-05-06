@@ -33,6 +33,7 @@ public class PatientMainActivity extends AppCompatActivity implements PatientDas
     private ListView drawerList;
     private DrawerLayout drawerMenuLayout;
     private Boolean isMenuItemClicked=false;
+    SessionManager sessionManager;
 
     Toolbar toolbar;
     TextView textViewToolbarTitle;
@@ -54,6 +55,7 @@ public class PatientMainActivity extends AppCompatActivity implements PatientDas
             fragmentManager.beginTransaction().replace(R.id.patient_content_frame,fragment).commit();
         }
 
+        sessionManager=new SessionManager(PatientMainActivity.this);
 
     }
 
@@ -115,6 +117,9 @@ public class PatientMainActivity extends AppCompatActivity implements PatientDas
             case 2:
                 Intent intent=new Intent(PatientMainActivity.this,PatientSourceActivity.class);
                 startActivity(intent);
+                break;
+            case 3:
+                sessionManager.logoutUser();
                 break;
         }
 

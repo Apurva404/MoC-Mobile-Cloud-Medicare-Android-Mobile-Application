@@ -1,6 +1,7 @@
 package com.manage.hospital.hmapp.ui;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.AsyncTask;
@@ -14,6 +15,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
 import com.manage.hospital.hmapp.Extras.Interface.DocDashboardFragmentToActivity;
 import com.manage.hospital.hmapp.Extras.Interface.PatientDashboardFragmentToActivity;
@@ -43,12 +45,14 @@ import java.util.List;
 /**
  * Created by sindhya on 4/29/17.
  */
-public class PatientDashboardFragment extends Fragment {
+public class PatientDashboardFragment extends Fragment implements View.OnClickListener {
 
     private PatientDashboardFragmentToActivity mListener;
     SharedPreferences sharedPreferences;
     FitbitListAdapter fitbitAdapter;
     RecyclerView recyclerViewFitbit;
+
+    Button btnCallEmergency,btnCall911;
 
     public PatientDashboardFragment() {
 
@@ -73,6 +77,11 @@ public class PatientDashboardFragment extends Fragment {
 
         recyclerViewFitbit.setLayoutManager(layoutManager);
         recyclerViewFitbit.setItemAnimator(new DefaultItemAnimator());
+
+        btnCallEmergency=(Button)view.findViewById(R.id.btn_call_emergency);
+        btnCallEmergency.setOnClickListener(this);
+        btnCall911=(Button)view.findViewById(R.id.btn_call_911);
+        btnCall911.setOnClickListener(this);
 
         String token=sharedPreferences.getString(FitbitReferences.FITBIT_TOKEN,"");
         String uid=sharedPreferences.getString(FitbitReferences.FITBIT_UID,"");
@@ -113,6 +122,18 @@ public class PatientDashboardFragment extends Fragment {
         mListener = null;
     }
 
+    @Override
+    public void onClick(View view) {
+        int id=view.getId();
+        if(id==R.id.btn_call_emergency){
+
+        }else if(id==R.id.btn_call_911){
+            Intent callIntent = new Intent(Intent.ACTION_DIAL);
+            callIntent.setData(Uri.parse("tel:" +"911"));
+            startActivity(callIntent);
+        }
+    }
+
 
     public class FetchFitbitListTask extends AsyncTask<String,Void,LinkedHashMap<String,Double>> {
 
@@ -134,10 +155,26 @@ public class PatientDashboardFragment extends Fragment {
             Double hr_data=jsonObject.getDouble(hr_key);
             Double steps_data=jsonObject.getDouble(steps_key);
 
-            fitbitMap.put(sleep_key,sleep_data);
-            fitbitMap.put(calories_key,Double.parseDouble(calories_data));
-            fitbitMap.put(hr_key,hr_data);
-            fitbitMap.put(steps_key,steps_data);
+            if(sleep_data!=0d) {
+                fitbitMap.put(sleep_key, sleep_data);
+            }else{
+                fitbitMap.put(sleep_key, 0d);
+            }
+            if(calories_data!=null) {
+                fitbitMap.put(calories_key, Double.parseDouble(calories_data));
+            }else{
+                fitbitMap.put(calories_key,0d);
+            }
+            if(hr_data!=0d) {
+                fitbitMap.put(hr_key, hr_data);
+            }else{
+                fitbitMap.put(hr_key,0d);
+            }
+            if(steps_data!=0d) {
+                fitbitMap.put(steps_key, steps_data);
+            }else{
+                fitbitMap.put(steps_key,0d);
+            }
 
             return fitbitMap;
 

@@ -32,6 +32,7 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.util.HashMap;
 
 /**
  * Created by sindhya on 4/18/17.
@@ -42,6 +43,8 @@ public class PatientFragment extends Fragment implements SwipeRefreshLayout.OnRe
     private SwipeRefreshLayout swipeRefreshLayout;
     private RecyclerView recyclerViewPatient;
     PatientListAdapter patientListAdapter;
+    SessionManager sessionManager;
+    private String doc_id;
 
     @Nullable
     @Override
@@ -50,6 +53,11 @@ public class PatientFragment extends Fragment implements SwipeRefreshLayout.OnRe
         View root_view=inflater.inflate(R.layout.fragment_doctor_patients,container,false);
         swipeRefreshLayout=(SwipeRefreshLayout)root_view.findViewById(R.id.patients_swipe_refresh_layout);
         swipeRefreshLayout.setOnRefreshListener(this);
+
+        sessionManager=new SessionManager(getActivity());
+        HashMap<String, String> user = sessionManager.getUserDetails();
+        doc_id = user.get(SessionManager.KEY_ID);
+
 
         recyclerViewPatient=(RecyclerView) root_view.findViewById(R.id.patient_list_view);
         LinearLayoutManager linearLayoutManager=new LinearLayoutManager(getContext());
@@ -67,7 +75,7 @@ public class PatientFragment extends Fragment implements SwipeRefreshLayout.OnRe
 
     public void getAppointmentList(){
         FetchPatientListTask fetchPatientListTask=new FetchPatientListTask();
-        fetchPatientListTask.execute();
+        fetchPatientListTask.execute(doc_id);
     }
 
     @Override
@@ -77,7 +85,7 @@ public class PatientFragment extends Fragment implements SwipeRefreshLayout.OnRe
         swipeRefreshLayout.setRefreshing(false);
     }
 
-    public class FetchPatientListTask extends AsyncTask<Void,Void,PatientData> {
+    public class FetchPatientListTask extends AsyncTask<String,Void,PatientData> {
 
         private final String LOG_TAG=FetchPatientListTask.class.getSimpleName();
 
@@ -101,7 +109,7 @@ public class PatientFragment extends Fragment implements SwipeRefreshLayout.OnRe
 
 
         @Override
-        protected PatientData doInBackground(Void... voids) {
+        protected PatientData doInBackground(String... params) {
 
 
             HttpURLConnection urlConnection=null;
@@ -112,7 +120,7 @@ public class PatientFragment extends Fragment implements SwipeRefreshLayout.OnRe
             try{
                 String baseUrl= ConfigConstant.BASE_URL;
                 final String PATH_PARAM = ConfigConstant.DOC_PATIENT_LIST_ENDPOINT;
-                final String DOC_ID="1";
+                final String DOC_ID=params[0];
 
 
 

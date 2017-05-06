@@ -18,22 +18,50 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".ui.AppointmentActivity"
+            android:name="com.manage.hospital.hmapp.ui.Registration"
+            android:label="Registration" >
+        </activity>
+
+        <activity
+            android:name="com.manage.hospital.hmapp.ui.DoctorRegistration"
+            android:label="Registration For Doctor" >
+        </activity>
+
+        <activity
+            android:name="com.manage.hospital.hmapp.ui.PatientRegistration"
+            android:label="Registration For Patient" >
+        </activity>
+
+        <activity
+            android:name="com.manage.hospital.hmapp.ui.LoginActivity"
+            android:label="Login">
+        </activity>
+
+        <activity
+            android:name="com.manage.hospital.hmapp.ui.HomeActivity"
+            android:label="Opening Page" >
+        </activity>
+        <activity
+            android:name="com.manage.hospital.hmapp.ui.AppointmentActivity"
             android:theme="@style/AppTheme" />
         <activity
-            android:name=".ui.AppointmentDetailActivity"
+            android:name="com.manage.hospital.hmapp.ui.AppointmentDetailActivity"
             android:theme="@style/AppTheme" />
         <activity
-            android:name=".ui.PatientActivity"
+            android:name="com.manage.hospital.hmapp.ui.PatientActivity"
             android:theme="@style/AppTheme" />
         <activity
-            android:name=".ui.PatientMainActivity" />
+            android:name="com.manage.hospital.hmapp.ui.PatientMainActivity" />
         <activity
-            android:name=".ui.PatientSourceActivity"
+            android:name="com.manage.hospital.hmapp.ui.LauncherActivity" />
+        <activity
+            android:name="com.manage.hospital.hmapp.ui.PatientSourceActivity"
             android:theme="@style/AppTheme" />
         <activity
-            android:name=".ui.FitbitActivity"
+            android:name="com.manage.hospital.hmapp.ui.FitbitActivity"
             android:theme="@style/AppTheme"/>
+
+
         
         <activity android:name=".Extras.fitbit.FitbitTokenResponse"
             android:theme="@style/NoActionBarTheme">

@@ -33,6 +33,7 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 /**
@@ -42,13 +43,21 @@ public class AppointmentFragment extends Fragment implements SwipeRefreshLayout.
 
     private SwipeRefreshLayout swipeRefreshLayout;
     private RecyclerView recyclerViewAppointment;
+    private String doc_id;
     AppointmentListAdapter appointmentListAdapter;
+    SessionManager session;
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
         View root_view=inflater.inflate(R.layout.fragment_appointment,container,false);
+
+        session=new SessionManager(getActivity());
+        HashMap<String, String> user = session.getUserDetails();
+        doc_id = user.get(SessionManager.KEY_ID);
+
+
         swipeRefreshLayout=(SwipeRefreshLayout)root_view.findViewById(R.id.appointment_swipe_refresh_layout);
         swipeRefreshLayout.setOnRefreshListener(this);
 
@@ -68,7 +77,7 @@ public class AppointmentFragment extends Fragment implements SwipeRefreshLayout.
 
     public void getAppointmentList(){
         FetchAppointmentListTask fetchAppointmentListTask=new FetchAppointmentListTask();
-        fetchAppointmentListTask.execute();
+        fetchAppointmentListTask.execute(doc_id);
     }
 
     @Override
@@ -80,7 +89,7 @@ public class AppointmentFragment extends Fragment implements SwipeRefreshLayout.
     }
 
 
-    public class FetchAppointmentListTask extends AsyncTask<Void,Void,AppointmentData> {
+    public class FetchAppointmentListTask extends AsyncTask<String,Void,AppointmentData> {
 
         private final String LOG_TAG=FetchAppointmentListTask.class.getSimpleName();
 
@@ -104,7 +113,7 @@ public class AppointmentFragment extends Fragment implements SwipeRefreshLayout.
 
 
         @Override
-        protected AppointmentData doInBackground(Void... voids) {
+        protected AppointmentData doInBackground(String... params) {
 
 
             HttpURLConnection urlConnection=null;
@@ -115,7 +124,7 @@ public class AppointmentFragment extends Fragment implements SwipeRefreshLayout.
             try{
                 String baseUrl= ConfigConstant.BASE_URL;
                 final String PATH_PARAM = ConfigConstant.DOC_APPOINTMENT_LIST_ENDPOINT;
-                final String DOCTOR_ID="1";
+                final String DOCTOR_ID=params[0];
 
 
                 Uri appointmtUri=Uri.parse(baseUrl).buildUpon().appendEncodedPath(PATH_PARAM).appendEncodedPath(DOCTOR_ID).build();

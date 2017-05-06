@@ -37,6 +37,7 @@ public class DoctorMainActivity extends AppCompatActivity implements DocDashboar
     Toolbar toolbar;
     TextView textViewToolbarTitle;
     TextView textUserName;
+    SessionManager sessionManager;
 
 
 
@@ -61,6 +62,7 @@ public class DoctorMainActivity extends AppCompatActivity implements DocDashboar
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         textViewToolbarTitle=(TextView)findViewById(R.id.toolbar_title);
 
+        sessionManager=new SessionManager(DoctorMainActivity.this);
         textViewToolbarTitle.setText(getResources().getString(R.string.home_activity_title));
         textUserName=(TextView)findViewById(R.id.username);
 
@@ -74,6 +76,7 @@ public class DoctorMainActivity extends AppCompatActivity implements DocDashboar
         navDrawerItems.add(new NavDrawerItem(drawerTitleArray[0], drawerIconsArray.getResourceId(0, -1)));
         navDrawerItems.add(new NavDrawerItem(drawerTitleArray[1], drawerIconsArray.getResourceId(1, -1)));
         navDrawerItems.add(new NavDrawerItem(drawerTitleArray[2], drawerIconsArray.getResourceId(2, -1)));
+        navDrawerItems.add(new NavDrawerItem(drawerTitleArray[3], drawerIconsArray.getResourceId(3, -1)));
 
         menuListAdapter=new NavigationListAdapter(getApplicationContext(),navDrawerItems);
         drawerList.setAdapter(menuListAdapter);
@@ -108,6 +111,9 @@ public class DoctorMainActivity extends AppCompatActivity implements DocDashboar
             case 2:
                 Intent pat_intent=new Intent(DoctorMainActivity.this,PatientActivity.class);
                 startActivity(pat_intent);
+                break;
+            case 3:
+                sessionManager.logoutUser();
                 break;
         }
 

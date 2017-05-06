@@ -6,7 +6,7 @@
     <!--Doctor home activity-->
     <string name="home_activity_title">Home</string>
 
-    <!--Home screen menu title-->
+    <!--LauncherActivity screen menu title-->
     <string-array name="doc_nav_drawer_items">
         <item>Home</item>
         <item>Appointments</item>
@@ -40,7 +40,8 @@
 
     <!--Patient Dashboard fragment-->
     <string name="fitbit_title">Fitbit</string>
-    <string name="call_emergency">Call Emergency</string>
+    <string name="call_emergency">Call Emergency Contact</string>
+    <string name="call_911">Call 911</string>
 
 
     <!--Source Activity-->
