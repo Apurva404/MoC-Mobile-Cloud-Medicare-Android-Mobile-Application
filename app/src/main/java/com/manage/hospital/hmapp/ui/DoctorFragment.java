@@ -1,5 +1,6 @@
 package com.manage.hospital.hmapp.ui;
 
+import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.AsyncTask;
@@ -16,6 +17,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.manage.hospital.hmapp.Extras.Interface.DoctorFragmentToDoctorActivity;
+import com.manage.hospital.hmapp.Extras.Interface.PatientFragmentToPatientActivity;
 import com.manage.hospital.hmapp.R;
 import com.manage.hospital.hmapp.adapter.DocListAdapter;
 import com.manage.hospital.hmapp.data.DoctorData;
@@ -45,6 +48,7 @@ public class DoctorFragment extends Fragment implements SwipeRefreshLayout.OnRef
     DocListAdapter DoctorListAdapter;
     SessionManager sessionManager;
     private String pt_id;
+    DoctorFragmentToDoctorActivity doctorItemListener;
 
     @Nullable
     @Override
@@ -81,9 +85,32 @@ public class DoctorFragment extends Fragment implements SwipeRefreshLayout.OnRef
 
     }
 
+    @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+        if (context instanceof DoctorFragmentToDoctorActivity) {
+            doctorItemListener = (DoctorFragmentToDoctorActivity) context;
+        } else {
+            throw new RuntimeException(context.toString()
+                    + " must implement volunteer listener");
+        }
+    }
+
+    @Override
+    public void onDetach() {
+        super.onDetach();
+        doctorItemListener = null;
+    }
+
     public void getDoctorList(){
         FetchDoctorListTask fetchDoctorListTask=new FetchDoctorListTask();
         fetchDoctorListTask.execute(pt_id);
+    }
+
+    public void doctorItemClick(int position){
+        if(doctorItemListener!=null){
+            doctorItemListener.onDoctorItemClick(position);
+        }
     }
 
     @Override
