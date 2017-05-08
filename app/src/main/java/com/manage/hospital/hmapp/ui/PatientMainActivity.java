@@ -38,6 +38,7 @@ public class PatientMainActivity extends AppCompatActivity implements PatientDas
     Toolbar toolbar;
     TextView textViewToolbarTitle;
     TextView textUserName;
+    Intent intent;
 
 
 
@@ -119,6 +120,14 @@ public class PatientMainActivity extends AppCompatActivity implements PatientDas
                 startActivity(intent);
                 break;
             case 3:
+                intent=new Intent(PatientMainActivity.this,DoctorActivity.class);
+                startActivity(intent);
+                break;
+            case 4:
+                intent=new Intent(PatientMainActivity.this,ReminderMainActivity.class);
+                startActivity(intent);
+                break;
+            case 5:
                 sessionManager.logoutUser();
                 break;
         }

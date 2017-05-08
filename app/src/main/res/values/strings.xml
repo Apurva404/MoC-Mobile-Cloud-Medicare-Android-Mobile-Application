@@ -28,9 +28,12 @@
         <item>Home</item>
         <item>Appointments</item>
         <item>Sources</item>
+        <item>Doctors</item>
+        <item>Reminders</item>
         <item>Log Out</item>
     </string-array>
     <array name="pat_nav_drawer_icons">
+        <item>@drawable/menu_home</item>
         <item>@drawable/menu_home</item>
         <item>@drawable/menu_home</item>
         <item>@drawable/menu_home</item>
@@ -80,6 +83,53 @@
     <string name="apmt_dialog_btn_ok">ok</string>
     <string name="apmt_success_msg">Appointment status is updated successfully</string>
     <string name="apmt_failure_msg">Your response is not updated. Please try again!</string>
+
+    <array name="nav_drawer_icons">
+        <item>@drawable/menu_home</item>
+        <item>@drawable/menu_home</item>
+        <item>@drawable/menu_home</item>
+        <item>@drawable/menu_home</item>
+        <item>@drawable/menu_home</item>
+        <item>@drawable/menu_home</item>
+    </array>
+
+    <!--Dashboard fragment-->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="banner_ad_unit_id" translatable="false">ca-app-pub-0661921010225573/7076125939</string>
+    <string name="tasks">Tasks</string>
+    <string name="action_settings">Alarm</string>
+    <string name="action_microphone">Micropone</string>
+    <string name="title_activity_new_task">New Task</string>
+    <string name="action_save">Save</string>
+    <string name="placeholder_title">Title</string>
+    <string name="pending">Pending</string>
+    <string name="done">Done</string>
+    <string name="all">All</string>
+    <string name="placeholder_date">Date</string>
+    <string name="placeholder_description">Description</string>
+    <string name="action_calendar">Date</string>
+    <string name="action_time">Time</string>
+    <string name="select_time">Date / Time</string>
+    <string name="title_activity_view_task">View Task</string>
+    <string name="action_delete">Delete</string>
+    <string name="action_edit">Edit</string>
+    <string name="action_show">Show details</string>
+    <string name="select_the_list">Select the list</string>
+    <string name="action_cancel">Cancel</string>
+    <string name="field_empty">This field is required</string>
+    <string name="title_activity_edit_task">Edit Task</string>
+    <string name="description">A fast To-do list. Simple and useful tool for management of tasks and reminders.  You can create tasks with a title, date and description. The Agenda is very fast and clean. Made to be easy to use.  The Agenda have three lists: Pending, Done and All, separating the done tasks of the others. Perfect for management and organize your tasks and reminders.</string>
+    <string name="phone_test_unique_id" translatable="false">e5564116db773c7b</string>
+    <string name="DoctorSpec">Select Doctor Speciality</string>
+
+    <string-array name="alarm_array">
+        <item>Alarm1</item>
+        <item>Alarm2</item>
+        <item>Alarm3</item>
+
+
+    </string-array>
+
 
 
 

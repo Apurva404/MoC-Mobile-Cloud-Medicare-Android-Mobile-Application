@@ -12,6 +12,8 @@ public class ConfigConstant {
     public static final String DOC_PATIENT_LIST_ENDPOINT="doctor/patients";
     public static final String APPOINTMENT_STATUS_UPDATE="doctor/appointmentStatus/update";
 
+    public static final String PATIENT_DOC_LIST_ENDPOINT="patient/doctors";
+
     public static final String FITBIT_AUTH_URL="https://www.fitbit.com/oauth2/authorize?response_type=token&client_id=228BFB&redirect_uri=hospapp%3A%2F%2Fcallbackresponse&scope=activity%20heartrate%20location%20nutrition%20profile%20settings%20sleep%20social%20weight&expires_in=604800";
 
     public static final String PACKAGE_CUSTOM_TAB = "com.android.chrome";

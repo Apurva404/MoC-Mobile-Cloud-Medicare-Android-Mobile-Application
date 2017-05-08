@@ -20,4 +20,10 @@
     <dimen name="et_padding">5dp</dimen>
     <dimen name="btn_padding">10dp</dimen>
 
+    <dimen name="tv_body_size">16sp</dimen>
+
+    <!--font size-->
+    <dimen name="fab_margin">16dp</dimen>
+    <dimen name="dot">1px</dimen>
+
 </resources>
