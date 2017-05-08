@@ -70,7 +70,7 @@ public class AppointmentFragment extends Fragment implements SwipeRefreshLayout.
         recyclerViewAppointment.setLayoutManager(layoutManager);
         recyclerViewAppointment.setItemAnimator(new DefaultItemAnimator());
 
-        updateAppointmentList();
+        getAppointmentList();
 
 
         return root_view;
@@ -99,15 +99,19 @@ public class AppointmentFragment extends Fragment implements SwipeRefreshLayout.
             appointmentItemListener.onAppointmentItemClick(position);
     }
 
-    public void updateAppointmentList(){
+    public void getAppointmentList(){
         FetchAppointmentListTask fetchAppointmentListTask=new FetchAppointmentListTask();
         fetchAppointmentListTask.execute(doc_id);
+    }
+
+    public void updateAppointmentList(){
+        getAppointmentList();
     }
 
     @Override
     public void onRefresh() {
 
-        updateAppointmentList();
+        getAppointmentList();
         swipeRefreshLayout.setRefreshing(false);
 
     }

@@ -1,5 +1,6 @@
 package com.manage.hospital.hmapp.ui;
 
+import android.content.Context;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -14,6 +15,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.manage.hospital.hmapp.Extras.Interface.AppointmentFragmentToAppointmentActivity;
+import com.manage.hospital.hmapp.Extras.Interface.PatientAdapterToPatientFragment;
+import com.manage.hospital.hmapp.Extras.Interface.PatientFragmentToPatientActivity;
 import com.manage.hospital.hmapp.R;
 import com.manage.hospital.hmapp.adapter.AppointmentListAdapter;
 import com.manage.hospital.hmapp.adapter.PatientListAdapter;
@@ -45,6 +49,7 @@ public class PatientFragment extends Fragment implements SwipeRefreshLayout.OnRe
     PatientListAdapter patientListAdapter;
     SessionManager sessionManager;
     private String doc_id;
+    PatientFragmentToPatientActivity patientItemListener;
 
     @Nullable
     @Override
@@ -67,21 +72,45 @@ public class PatientFragment extends Fragment implements SwipeRefreshLayout.OnRe
         recyclerViewPatient.setLayoutManager(layoutManager);
         recyclerViewPatient.setItemAnimator(new DefaultItemAnimator());
 
-        getAppointmentList();
+        getPatientList();
 
         return root_view;
 
     }
 
-    public void getAppointmentList(){
+    @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+        if (context instanceof PatientFragmentToPatientActivity) {
+            patientItemListener = (PatientFragmentToPatientActivity) context;
+        } else {
+            throw new RuntimeException(context.toString()
+                    + " must implement volunteer listener");
+        }
+    }
+
+    @Override
+    public void onDetach() {
+        super.onDetach();
+        patientItemListener = null;
+    }
+
+    public void getPatientList(){
+
         FetchPatientListTask fetchPatientListTask=new FetchPatientListTask();
         fetchPatientListTask.execute(doc_id);
+    }
+
+    public void patientItemClick(int position){
+        if(patientItemListener!=null){
+            patientItemListener.onPatientItemClick(position);
+        }
     }
 
     @Override
     public void onRefresh() {
 
-        getAppointmentList();
+        getPatientList();
         swipeRefreshLayout.setRefreshing(false);
     }
 
@@ -197,6 +226,13 @@ public class PatientFragment extends Fragment implements SwipeRefreshLayout.OnRe
                 }else{
                     patientListAdapter.notifyDataSetChanged();
                 }
+                patientListAdapter.setOnItemClickListener(new PatientAdapterToPatientFragment() {
+                    @Override
+                    public void onPatientItemClick(int position) {
+                        patientItemClick(position);
+                    }
+                });
+
             }
         }
     }

@@ -60,6 +60,9 @@
             android:name="com.manage.hospital.hmapp.ui.PatientSourceActivity"
             android:theme="@style/AppTheme" />
         <activity
+            android:name="com.manage.hospital.hmapp.ui.PatientDetailActivity"
+            android:theme="@style/AppTheme" />
+        <activity
             android:name="com.manage.hospital.hmapp.ui.FitbitActivity"
             android:theme="@style/AppTheme"/>
         <activity

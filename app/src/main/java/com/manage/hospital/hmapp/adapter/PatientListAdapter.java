@@ -7,6 +7,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.manage.hospital.hmapp.Extras.Interface.AppointmentAdapterToAppointmentActivity;
+import com.manage.hospital.hmapp.Extras.Interface.PatientAdapterToPatientFragment;
 import com.manage.hospital.hmapp.R;
 import com.manage.hospital.hmapp.data.AppointmentStructure;
 import com.manage.hospital.hmapp.data.PatientStructure;
@@ -22,6 +24,7 @@ public class PatientListAdapter extends RecyclerView.Adapter<PatientListAdapter.
 
     private Context context;
     private List<PatientStructure> patientList;
+    PatientAdapterToPatientFragment itemClickListener;
 
     public PatientListAdapter(Context mContext, List<PatientStructure> patient_list) {
         this.context = mContext;
@@ -49,7 +52,7 @@ public class PatientListAdapter extends RecyclerView.Adapter<PatientListAdapter.
         return patientList.size();
     }
 
-    public class PatientViewHolder extends RecyclerView.ViewHolder {
+    public class PatientViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
         TextView patientfName, patientlName;
 
@@ -58,8 +61,20 @@ public class PatientListAdapter extends RecyclerView.Adapter<PatientListAdapter.
 
             patientfName = (TextView) itemView.findViewById(R.id.card_patient_fname);
             patientlName = (TextView) itemView.findViewById(R.id.card_patient_lname);
+            itemView.setOnClickListener(this);
 
         }
+
+        @Override
+        public void onClick(View view) {
+            if(itemClickListener!=null){
+                itemClickListener.onPatientItemClick(getAdapterPosition());
+            }
+        }
+    }
+
+    public void setOnItemClickListener(final PatientAdapterToPatientFragment patientItemClickListener){
+        this.itemClickListener=patientItemClickListener;
     }
 }
 
