@@ -68,7 +68,7 @@ public class DoctorFragment extends Fragment implements SwipeRefreshLayout.OnRef
 
         getDoctorList();
 
-        FloatingActionButton fab = (FloatingActionButton) root_view.findViewById(R.id.addTask);
+        FloatingActionButton fab = (FloatingActionButton) root_view.findViewById(R.id.addDoctor);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

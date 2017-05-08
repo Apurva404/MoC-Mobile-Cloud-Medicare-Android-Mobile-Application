@@ -147,4 +147,15 @@
 
 
 
+    <!--Patient Doctors Activity--> 
+    <string name="patient_doctors_title">Doctors</string>  
+
+    <!--Doctor Patients Detail Activity--> 
+
+    <string name="patient_doctor_detail_title">Patient Details</string> 
+     <string name="card_det_doctor_contact">Contact</string>
+     <string name="card_det_doctor_email">Email Id</string>
+     <string name="card_det_doctor_spec">Specialization</string>
+
+
 </resources>

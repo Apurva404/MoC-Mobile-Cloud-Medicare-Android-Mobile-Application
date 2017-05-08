@@ -7,6 +7,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.manage.hospital.hmapp.Extras.Interface.DoctorAdapterToDoctorFragment;
+import com.manage.hospital.hmapp.Extras.Interface.PatientAdapterToPatientFragment;
 import com.manage.hospital.hmapp.R;
 import com.manage.hospital.hmapp.data.DoctorStructure;
 
@@ -20,6 +22,7 @@ public class DocListAdapter extends RecyclerView.Adapter<DocListAdapter.DoctorVi
 
     private Context context;
     private List<DoctorStructure> doctorList;
+    DoctorAdapterToDoctorFragment itemClickListener;
 
     public DocListAdapter(Context mContext, List<DoctorStructure> doctor_list) {
         this.context = mContext;
@@ -47,7 +50,7 @@ public class DocListAdapter extends RecyclerView.Adapter<DocListAdapter.DoctorVi
         return doctorList.size();
     }
 
-    public class DoctorViewHolder extends RecyclerView.ViewHolder {
+    public class DoctorViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
         TextView doctorfName, doctorlName;
 
@@ -56,8 +59,19 @@ public class DocListAdapter extends RecyclerView.Adapter<DocListAdapter.DoctorVi
 
             doctorfName = (TextView) itemView.findViewById(R.id.card_doctor_fname);
             doctorlName = (TextView) itemView.findViewById(R.id.card_doctor_lname);
-
+            itemView.setOnClickListener(this);
         }
+
+        @Override
+        public void onClick(View view) {
+            if(itemClickListener!=null){
+                itemClickListener.onDoctorItemClick(getAdapterPosition());
+            }
+        }
+    }
+
+    public void setOnItemClickListener(final DoctorAdapterToDoctorFragment doctorItemClickListener){
+        this.itemClickListener=doctorItemClickListener;
     }
 }
 
