@@ -1,6 +1,7 @@
 package com.manage.hospital.hmapp.ui;
 
 
+import android.content.Context;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -12,10 +13,12 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ListView;
 
+import com.manage.hospital.hmapp.Extras.Interface.AppointmentAdapterToAppointmentActivity;
+import com.manage.hospital.hmapp.Extras.Interface.AppointmentFragmentToAppointmentActivity;
 import com.manage.hospital.hmapp.R;
 import com.manage.hospital.hmapp.adapter.AppointmentListAdapter;
 import com.manage.hospital.hmapp.data.AppointmentData;
@@ -24,7 +27,6 @@ import com.manage.hospital.hmapp.utility.ConfigConstant;
 
 import org.json.JSONArray;
 import org.json.JSONException;
-import org.json.JSONObject;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -32,9 +34,7 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 
 /**
  * Created by sindhya on 4/13/17.
@@ -46,6 +46,7 @@ public class AppointmentFragment extends Fragment implements SwipeRefreshLayout.
     private String doc_id;
     AppointmentListAdapter appointmentListAdapter;
     SessionManager session;
+    AppointmentFragmentToAppointmentActivity appointmentItemListener;
 
     @Nullable
     @Override
@@ -69,13 +70,36 @@ public class AppointmentFragment extends Fragment implements SwipeRefreshLayout.
         recyclerViewAppointment.setLayoutManager(layoutManager);
         recyclerViewAppointment.setItemAnimator(new DefaultItemAnimator());
 
-        getAppointmentList();
+        updateAppointmentList();
+
 
         return root_view;
 
     }
 
-    public void getAppointmentList(){
+    @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+        if (context instanceof AppointmentFragmentToAppointmentActivity) {
+            appointmentItemListener = (AppointmentFragmentToAppointmentActivity) context;
+        } else {
+            throw new RuntimeException(context.toString()
+                    + " must implement volunteer listener");
+        }
+    }
+
+    @Override
+    public void onDetach() {
+        super.onDetach();
+        appointmentItemListener = null;
+    }
+
+    public void appointmentItemClick(int position) {
+        if (appointmentItemListener != null)
+            appointmentItemListener.onAppointmentItemClick(position);
+    }
+
+    public void updateAppointmentList(){
         FetchAppointmentListTask fetchAppointmentListTask=new FetchAppointmentListTask();
         fetchAppointmentListTask.execute(doc_id);
     }
@@ -83,7 +107,7 @@ public class AppointmentFragment extends Fragment implements SwipeRefreshLayout.
     @Override
     public void onRefresh() {
 
-        getAppointmentList();
+        updateAppointmentList();
         swipeRefreshLayout.setRefreshing(false);
 
     }
@@ -199,6 +223,13 @@ public class AppointmentFragment extends Fragment implements SwipeRefreshLayout.
                 }else{
                     appointmentListAdapter.notifyDataSetChanged();
                 }
+
+                appointmentListAdapter.setOnItemClickListener(new AppointmentAdapterToAppointmentActivity() {
+                    @Override
+                    public void onAppointmentItemClick(int position) {
+                        appointmentItemClick(position);
+                    }
+                });
             }
         }
     }

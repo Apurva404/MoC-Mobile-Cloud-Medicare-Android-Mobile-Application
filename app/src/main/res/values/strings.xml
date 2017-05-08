@@ -62,4 +62,25 @@
     <string name="fitbit_heart_rate_title">Heart Rate</string>
 
 
+    <!--Appointment Details-->
+    <string name="appointment_detail_status">Status</string>
+    <string name="appointment_id">Appointment Id</string>
+    <string name="appointment_details_title">Appointment Details</string>
+    <string name="appointment_patient_name">Patient Name</string>
+    <string name="appointment_date">Date</string>
+    <string name="appointment_description">Details</string>
+    <string name="appointment_accept">Accept</string>
+    <string name="appointment_cancel">Cancel</string>
+
+    <string name="appt_status_accepted">Accepted</string>
+    <string name="appt_status_declined">Declined</string>
+    <string name="appt_status_requested">Requested</string>
+
+    <string name="apmt_dialog_title">Appointment</string>
+    <string name="apmt_dialog_btn_ok">ok</string>
+    <string name="apmt_success_msg">Appointment status is updated successfully</string>
+    <string name="apmt_failure_msg">Your response is not updated. Please try again!</string>
+
+
+
 </resources>

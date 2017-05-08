@@ -1,14 +1,14 @@
 package com.manage.hospital.hmapp.adapter;
 
 import android.content.Context;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.RecyclerView;
-import android.view.InflateException;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.BaseAdapter;
 import android.widget.TextView;
 
+import com.manage.hospital.hmapp.Extras.Interface.AppointmentAdapterToAppointmentActivity;
 import com.manage.hospital.hmapp.data.AppointmentStructure;
 import com.manage.hospital.hmapp.R;
 
@@ -26,6 +26,7 @@ public class AppointmentListAdapter extends RecyclerView.Adapter<AppointmentList
 
     private Context context;
     private List<AppointmentStructure> appointmentList;
+    AppointmentAdapterToAppointmentActivity itemClickListener;
 
     public AppointmentListAdapter(Context mContext, List<AppointmentStructure> appointment_list) {
         this.context = mContext;
@@ -44,16 +45,25 @@ public class AppointmentListAdapter extends RecyclerView.Adapter<AppointmentList
 
         AppointmentStructure appObj = appointmentList.get(position);
         //holder.patientName.setText(appObj.getPatient_name());
-        if(appObj.getAppointment_status().equals("Not Completed")) {
-            holder.status.setText("Not Attended");
+        if(appObj.getAppointment_status().equals(context.getResources().getString(R.string.appt_status_requested))) {
+            holder.status.setText("Request Pending");
+            holder.status.setTextColor(ContextCompat.getColor(context,R.color.yellowColor));
+        }else if(appObj.getAppointment_status().equals(context.getResources().getString(R.string.appt_status_accepted))){
+            holder.status.setText(appObj.getAppointment_status());
+            holder.status.setTextColor(ContextCompat.getColor(context,R.color.greenColor));
+        }else if(appObj.getAppointment_status().equals(context.getResources().getString(R.string.appt_status_declined))){
+            holder.status.setText(appObj.getAppointment_status());
+            holder.status.setTextColor(ContextCompat.getColor(context,R.color.redColor));
         }
-        String date=converDate(appObj.getAppointment_date_time());
+        String date=convertDate(appObj.getAppointment_date_time());
         holder.appDate.setText(date);
         holder.appDesc.setText(appObj.getAppointment_desc());
 
     }
 
-    private String converDate(String input_date){
+
+
+    private String convertDate(String input_date){
         SimpleDateFormat inputDateFormat=new SimpleDateFormat("yyyy-mm-dd");
         Date p_date=null;
         try{
@@ -72,7 +82,7 @@ public class AppointmentListAdapter extends RecyclerView.Adapter<AppointmentList
         return appointmentList.size();
     }
 
-    public class AppointmentViewHolder extends RecyclerView.ViewHolder {
+    public class AppointmentViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
 
         TextView patientName, status, appDate,appDesc;
 
@@ -83,9 +93,21 @@ public class AppointmentListAdapter extends RecyclerView.Adapter<AppointmentList
             status = (TextView) itemView.findViewById(R.id.card_status);
             appDate = (TextView) itemView.findViewById(R.id.card_date);
             appDesc=(TextView)itemView.findViewById(R.id.card_app_desc);
+            itemView.setOnClickListener(this);
 
         }
 
+        @Override
+        public void onClick(View view) {
+
+            if(itemClickListener!=null){
+                itemClickListener.onAppointmentItemClick(getAdapterPosition());
+            }
+        }
+    }
+
+    public void setOnItemClickListener(final AppointmentAdapterToAppointmentActivity appointmentItemClickListener){
+        this.itemClickListener=appointmentItemClickListener;
     }
 
 }

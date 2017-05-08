@@ -11,4 +11,8 @@
     <color name="blue">#0038A8</color>
     <color name="white">#FFF</color>
 
+    <color name="yellowColor">#ffaa00</color>
+    <color name="redColor">#cc3300</color>
+    <color name="greenColor">#00994d</color>
+
 </resources>
