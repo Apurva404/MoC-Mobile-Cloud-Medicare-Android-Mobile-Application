@@ -104,7 +104,7 @@ public class DoctorFragment extends Fragment implements SwipeRefreshLayout.OnRef
 
     public void getDoctorList(){
         FetchDoctorListTask fetchDoctorListTask=new FetchDoctorListTask();
-        fetchDoctorListTask.execute("1");
+        fetchDoctorListTask.execute(pt_id);
     }
 
     public void doctorItemClick(int position){
