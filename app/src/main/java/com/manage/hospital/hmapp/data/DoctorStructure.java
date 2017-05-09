@@ -14,7 +14,6 @@ public class DoctorStructure {
     public String doctor_spec;
     public String license_number;
     public String dob;
-    public String doc_id;
     public String gender;
     public String email;
     public String contact_num;
@@ -52,8 +51,6 @@ public class DoctorStructure {
 
     public String getGender() {return gender;}
 
-    //public String getDocId() {return doc_id;}
-
     public DoctorStructure(JSONObject jsonObject){
 
         try {
@@ -61,6 +58,7 @@ public class DoctorStructure {
             doctor_lname=jsonObject.getString("Lastname");
             doctor_spec=jsonObject.getString("Speciality");
             email=jsonObject.getString("Email_Id");
+            dob=jsonObject.getString("DOB");
             license_number=jsonObject.getString("LicenseNumber");
             contact_num=jsonObject.getString("ContactNo");
             address=jsonObject.getString("Address");
