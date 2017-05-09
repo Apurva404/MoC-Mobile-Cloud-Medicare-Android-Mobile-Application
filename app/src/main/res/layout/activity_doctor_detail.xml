@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.manage.hospital.hmapp.ui.AppointmentDetailActivity">
+    tools:context="com.manage.hospital.hmapp.ui.DoctorDetailActivity">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -70,7 +70,6 @@
                         android:text="@string/card_det_doctor_spec"
                         android:textSize="@dimen/tv_body_content" />
 
-
                     <TextView
                         android:id="@+id/card_doc_detail_spec"
                         android:layout_width="0dp"
@@ -78,8 +77,6 @@
                         android:layout_weight="1.2"
                         android:gravity="left"
                         android:textSize="@dimen/tv_body_content" />
-
-
                 </TableRow>
 
                 <TableRow
@@ -96,7 +93,6 @@
                         android:text="@string/card_det_doctor_contact"
                         android:textSize="@dimen/tv_body_content" />
 
-
                     <TextView
                         android:id="@+id/card_doc_detail_contact"
                         android:layout_width="0dp"
@@ -104,8 +100,6 @@
                         android:layout_weight="1.2"
                         android:gravity="left"
                         android:textSize="@dimen/tv_body_content" />
-
-
                 </TableRow>
 
                 <TableRow
@@ -122,7 +116,6 @@
                         android:text="@string/card_det_doctor_email"
                         android:textSize="@dimen/tv_body_content" />
 
-
                     <TextView
                         android:id="@+id/card_doc_detail_email"
                         android:layout_width="0dp"
@@ -130,9 +123,105 @@
                         android:layout_weight="1.2"
                         android:gravity="left"
                         android:textSize="@dimen/tv_body_content" />
+                </TableRow>
 
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="15dp"
+                    android:weightSum="2">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.8"
+                        android:gravity="left"
+                        android:text="@string/card_det_doctor_licenseno"
+                        android:textSize="@dimen/tv_body_content" />
+
+                    <TextView
+                        android:id="@+id/card_doc_detail_licenseno"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1.2"
+                        android:gravity="left"
+                        android:textSize="@dimen/tv_body_content" />
 
                 </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="15dp"
+                    android:weightSum="2">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.8"
+                        android:gravity="left"
+                        android:text="@string/card_det_doctor_dob"
+                        android:textSize="@dimen/tv_body_content" />
+
+                    <TextView
+                        android:id="@+id/card_doc_detail_dob"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1.2"
+                        android:gravity="left"
+                        android:textSize="@dimen/tv_body_content" />
+
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="15dp"
+                    android:weightSum="2">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.8"
+                        android:gravity="left"
+                        android:text="@string/card_det_doctor_address"
+                        android:textSize="@dimen/tv_body_content" />
+
+                    <TextView
+                        android:id="@+id/card_doc_detail_address"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1.2"
+                        android:gravity="left"
+                        android:textSize="@dimen/tv_body_content" />
+
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="15dp"
+                    android:weightSum="2">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.8"
+                        android:gravity="left"
+                        android:text="@string/card_det_doctor_gender"
+                        android:textSize="@dimen/tv_body_content" />
+
+                    <TextView
+                        android:id="@+id/card_doc_detail_gender"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1.2"
+                        android:gravity="left"
+                        android:textSize="@dimen/tv_body_content" />
+
+                </TableRow>
+
+
 
 
             </TableLayout>

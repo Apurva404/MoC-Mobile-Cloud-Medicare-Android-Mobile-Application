@@ -78,6 +78,8 @@ public class PatientMainActivity extends AppCompatActivity implements PatientDas
         navDrawerItems.add(new NavDrawerItem(drawerTitleArray[1], drawerIconsArray.getResourceId(1, -1)));
         navDrawerItems.add(new NavDrawerItem(drawerTitleArray[2], drawerIconsArray.getResourceId(2, -1)));
         navDrawerItems.add(new NavDrawerItem(drawerTitleArray[3], drawerIconsArray.getResourceId(3,-1)));
+        navDrawerItems.add(new NavDrawerItem(drawerTitleArray[3], drawerIconsArray.getResourceId(4,-1)));
+        navDrawerItems.add(new NavDrawerItem(drawerTitleArray[3], drawerIconsArray.getResourceId(5,-1)));
 
         menuListAdapter=new NavigationListAdapter(getApplicationContext(),navDrawerItems);
         drawerList.setAdapter(menuListAdapter);

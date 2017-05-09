@@ -13,11 +13,7 @@
         android:supportsRtl="true"
         android:theme="@style/NoActionBarTheme">
         <activity android:name=".ui.DoctorMainActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity
             android:name="com.manage.hospital.hmapp.ui.Registration"
@@ -53,7 +49,16 @@
             android:name="com.manage.hospital.hmapp.ui.PatientActivity"
             android:theme="@style/AppTheme" />
         <activity
-            android:name="com.manage.hospital.hmapp.ui.PatientMainActivity" />
+            android:name="com.manage.hospital.hmapp.ui.DoctorDetailActivity"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name="com.manage.hospital.hmapp.ui.PatientMainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+            </activity>
         <activity
             android:name="com.manage.hospital.hmapp.ui.LauncherActivity" />
         <activity

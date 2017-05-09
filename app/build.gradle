@@ -29,7 +29,6 @@ dependencies {
     compile 'com.android.support:cardview-v7:24.1.1'
     compile 'com.android.support:recyclerview-v7:24.1.1'
     compile 'com.android.support:customtabs:24.1.1'
-    compile 'com.android.support.constraint:constraint-layout:1.0.1'
     compile 'com.mobsandgeeks:android-saripaar:2.0.3'
     testCompile 'junit:junit:4.12'
 }

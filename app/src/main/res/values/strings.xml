@@ -37,6 +37,7 @@
         <item>@drawable/menu_home</item>
         <item>@drawable/menu_home</item>
         <item>@drawable/menu_home</item>
+        <item>@drawable/menu_home</item>
         <item>@drawable/ic_logout</item>
     </array>
 
@@ -83,15 +84,6 @@
     <string name="apmt_dialog_btn_ok">ok</string>
     <string name="apmt_success_msg">Appointment status is updated successfully</string>
     <string name="apmt_failure_msg">Your response is not updated. Please try again!</string>
-
-    <array name="nav_drawer_icons">
-        <item>@drawable/menu_home</item>
-        <item>@drawable/menu_home</item>
-        <item>@drawable/menu_home</item>
-        <item>@drawable/menu_home</item>
-        <item>@drawable/menu_home</item>
-        <item>@drawable/menu_home</item>
-    </array>
 
     <!--Dashboard fragment-->
     <string name="hello_blank_fragment">Hello blank fragment</string>
@@ -156,6 +148,10 @@
      <string name="card_det_doctor_contact">Contact</string>
      <string name="card_det_doctor_email">Email Id</string>
      <string name="card_det_doctor_spec">Specialization</string>
+     <string name="card_det_doctor_address">Address</string>
+     <string name="card_det_doctor_dob">Date of Birth</string>
+     <string name="card_det_doctor_licenseno">License Number</string>
+    <string name="card_det_doctor_gender">Gender</string>
 
 
 </resources>

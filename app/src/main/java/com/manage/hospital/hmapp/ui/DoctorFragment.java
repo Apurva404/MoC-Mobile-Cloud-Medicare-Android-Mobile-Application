@@ -1,11 +1,11 @@
 package com.manage.hospital.hmapp.ui;
 
 import android.content.Context;
-import android.content.Intent;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.content.Intent;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
 import android.support.v4.widget.SwipeRefreshLayout;
@@ -18,7 +18,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.manage.hospital.hmapp.Extras.Interface.DoctorFragmentToDoctorActivity;
-import com.manage.hospital.hmapp.Extras.Interface.PatientFragmentToPatientActivity;
+import com.manage.hospital.hmapp.Extras.Interface.DoctorAdapterToDoctorFragment;
 import com.manage.hospital.hmapp.R;
 import com.manage.hospital.hmapp.adapter.DocListAdapter;
 import com.manage.hospital.hmapp.data.DoctorData;
@@ -104,7 +104,7 @@ public class DoctorFragment extends Fragment implements SwipeRefreshLayout.OnRef
 
     public void getDoctorList(){
         FetchDoctorListTask fetchDoctorListTask=new FetchDoctorListTask();
-        fetchDoctorListTask.execute(pt_id);
+        fetchDoctorListTask.execute("1");
     }
 
     public void doctorItemClick(int position){
@@ -233,6 +233,13 @@ public class DoctorFragment extends Fragment implements SwipeRefreshLayout.OnRef
                 }else {
                     DoctorListAdapter.notifyDataSetChanged();
                 }
+                DoctorListAdapter.setOnItemClickListener(new DoctorAdapterToDoctorFragment() {
+                    @Override
+                    public void onDoctorItemClick(int position) {
+                        doctorItemClick(position);
+                    }
+                });
+
             }
         }
     }

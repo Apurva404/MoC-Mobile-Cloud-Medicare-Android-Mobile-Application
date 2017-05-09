@@ -22,6 +22,12 @@ public class DoctorDetailActivity extends AppCompatActivity {
     TextView doctorDetailSpec;
     TextView doctorDetailContact;
     TextView doctorDetailEmail;
+    TextView doctorDetailAddress;
+    TextView doctorDetailGender;
+    TextView doctorDetailLicenseNumber;
+    TextView doctorDetailDOB;
+
+
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -42,6 +48,10 @@ public class DoctorDetailActivity extends AppCompatActivity {
         doctorDetailSpec=(TextView)findViewById(R.id.card_doc_detail_spec);
         doctorDetailContact=(TextView)findViewById(R.id.card_doc_detail_contact);
         doctorDetailEmail=(TextView)findViewById(R.id.card_doc_detail_email);
+        doctorDetailAddress=(TextView)findViewById(R.id.card_doc_detail_address);
+        doctorDetailGender=(TextView)findViewById(R.id.card_doc_detail_gender);
+        doctorDetailLicenseNumber=(TextView)findViewById(R.id.card_doc_detail_licenseno);
+        doctorDetailDOB=(TextView)findViewById(R.id.card_doc_detail_dob);
 
         setValues();
     }
@@ -51,6 +61,10 @@ public class DoctorDetailActivity extends AppCompatActivity {
         doctorDetailSpec.setText(DoctorData.getInstance().get(position).getSpectialization());
         doctorDetailContact.setText(DoctorData.getInstance().get(position).getContact_num());
         doctorDetailEmail.setText(DoctorData.getInstance().get(position).getEmail());
+        doctorDetailAddress.setText(DoctorData.getInstance().get(position).getAddress());
+        doctorDetailGender.setText(DoctorData.getInstance().get(position).getGender());
+        doctorDetailLicenseNumber.setText(DoctorData.getInstance().get(position).getLicense_num());
+        doctorDetailDOB.setText(DoctorData.getInstance().get(position).getDob());
 
     }
 
