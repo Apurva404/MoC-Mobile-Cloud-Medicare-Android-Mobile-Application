@@ -2,8 +2,10 @@ package com.manage.hospital.hmapp.ui;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -22,7 +24,17 @@ import org.apache.http.client.methods.HttpPost;
 import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.util.EntityUtils;
+import org.json.JSONException;
 import org.json.JSONObject;
+
+import java.io.BufferedReader;
+import java.io.EOFException;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+import java.net.HttpURLConnection;
+import java.net.URL;
 
 
 public class LoginActivity extends Activity
@@ -40,6 +52,8 @@ public class LoginActivity extends Activity
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.login);
+
+        //System.setProperty("http.keepAlive", "false");
 
         session = new SessionManager(getApplicationContext());
 
@@ -175,10 +189,11 @@ public class LoginActivity extends Activity
 
     }
 
-    public class AsyncTaskLoginPatient extends AsyncTask<LoginInfo, String, LoginInfo> {
+    public class AsyncTaskLoginPatient extends AsyncTask<LoginInfo, Void, LoginInfo> {
 
         HttpResponse response;
         SessionManager session;
+
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
@@ -188,24 +203,81 @@ public class LoginActivity extends Activity
         protected LoginInfo doInBackground(LoginInfo... params)
         {
 
-            String password = encryptPasscode.encryptPassword(params[0].Password);
+            LoginInfo loginInfo=params[0];
 
+            String password = encryptPasscode.encryptPassword(loginInfo.Password);
+
+            HttpURLConnection urlConnection=null;
+            BufferedReader reader=null;
+
+            String responseJson;
             try
             {
-                JSONObject requestBody = new JSONObject();
-                requestBody.put("username", params[0].Username);
-                requestBody.put("password",password); //ToDo hashcode of password
-                String request = requestBody.toString();
-                StringEntity request_param = new StringEntity(request);
 
-                String Url= ConfigConstant.BASE_URL+ConfigConstant.authenticatePatient;
-                HttpPost post = new HttpPost(Url);
-                post.setHeader("Content-Type","application/json");
-                post.setEntity(request_param);
-                HttpClient httpClient = new DefaultHttpClient();
-                response = httpClient.execute(post);
-                System.out.println("Reached after coming back from Backend API");
-                if (response.getStatusLine().getStatusCode() != 200)
+                String baseUrl= ConfigConstant.BASE_URL;
+                final String PATH_PARAM = ConfigConstant.authenticatePatient;
+
+                Uri loginUri=Uri.parse(baseUrl).buildUpon().appendEncodedPath(PATH_PARAM).build();
+
+                URL url=new URL(loginUri.toString());
+                urlConnection = (HttpURLConnection) url.openConnection();
+                urlConnection.setRequestMethod("POST");
+                urlConnection.setRequestProperty("Content-Type","application/json");
+                urlConnection.setDoInput(true);
+                urlConnection.setDoOutput(true);
+                urlConnection.connect();
+
+                try {
+                    JSONObject requestBody = new JSONObject();
+                    requestBody.put("username", params[0].Username);
+                    requestBody.put("password", password);
+
+                    OutputStreamWriter os = new OutputStreamWriter(urlConnection.getOutputStream());
+                    os.write(requestBody.toString());
+                    os.close();
+
+
+                    int HttpResult = urlConnection.getResponseCode();
+                    if (HttpResult == HttpURLConnection.HTTP_OK) {
+                        InputStream inputStream=urlConnection.getInputStream();
+                        StringBuffer buffer=new StringBuffer();
+                        if(inputStream==null){
+                            return null;
+                        }
+
+                        reader=new BufferedReader(new InputStreamReader(inputStream));
+
+                        String line;
+
+                        while((line=reader.readLine())!=null){
+                            buffer.append(line+"\n");
+                        }
+                        if(buffer.length()==0){
+                            return null;
+                        }
+                        responseJson=buffer.toString();
+
+                        JSONObject jsonObject=new JSONObject(responseJson);
+                        int uid=jsonObject.getInt("Patient ID");
+                        loginInfo.setID(uid);
+                    }
+                }catch (JSONException e){
+                    Log.e("Error",e.getMessage());
+                }
+                finally {
+                    if(urlConnection!=null){
+                        urlConnection.disconnect();
+                    }
+                    if(reader!=null){
+                        try{
+                            reader.close();
+                        }catch (final IOException e){
+                            Log.e("Error","Error closing stream",e);
+                        }
+                    }
+
+                }
+                /*if (response.getStatusLine().getStatusCode() != 200)
                 {
                     if(response.getStatusLine().getStatusCode() == 401)
                     {
@@ -231,13 +303,14 @@ public class LoginActivity extends Activity
                         int userID = j.getInt("Patient ID");
                         params[0].setID(userID);
                     }
-                }
+                }*/
+            } catch (IOException e){
+
+                Log.e("Error",e.getMessage(),e);
+                return null;
+
             }
-            catch(Exception x)
-            {
-                throw new RuntimeException("Error from authenticate patient api",x);
-            }
-            return params[0];
+            return loginInfo;
         }
 
         @Override

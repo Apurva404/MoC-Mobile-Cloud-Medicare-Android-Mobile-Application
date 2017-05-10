@@ -27,17 +27,19 @@
     <string-array name="pat_nav_drawer_items">
         <item>Home</item>
         <item>Appointments</item>
-        <item>Sources</item>
         <item>Doctors</item>
         <item>Reminders</item>
+        <item>Emergency Contact</item>
+        <item>Sources</item>
         <item>Log Out</item>
     </string-array>
     <array name="pat_nav_drawer_icons">
         <item>@drawable/menu_home</item>
-        <item>@drawable/menu_home</item>
-        <item>@drawable/menu_home</item>
-        <item>@drawable/menu_home</item>
-        <item>@drawable/menu_home</item>
+        <item>@drawable/ic_appointment</item>
+        <item>@drawable/ic_doctor</item>
+        <item>@drawable/ic_alarm</item>
+        <item>@drawable/ic_contact</item>
+        <item>@drawable/ic_sources</item>
         <item>@drawable/ic_logout</item>
     </array>
 
@@ -142,6 +144,15 @@
     <!--Patient Doctors Activity--> 
     <string name="patient_doctors_title">Doctors</string>  
 
+    <!--Patient Add Doctor-->
+    <string name="patient_add_doctor_title">Add Doctors</string>
+    <string name="patient_doctor_speciality">Speciality</string>
+    <string name="patient_doctor">Doctor</string>
+
+    <string name="pat_doc_dialog_success">Doctor added successfully.</string>
+    <string name="pat_doc_dialog_failure">Association not added. Try again!</string>
+    <string name="pat_add_doc_dialog_ok">ok</string>
+
     <!--Doctor Patients Detail Activity--> 
 
     <string name="patient_doctor_detail_title">Patient Details</string> 
@@ -152,6 +163,33 @@
      <string name="card_det_doctor_dob">Date of Birth</string>
      <string name="card_det_doctor_licenseno">License Number</string>
     <string name="card_det_doctor_gender">Gender</string>
+
+
+    <string name="app_label">Add Emergency Contact</string>
+    <string name="emergency_contact_label">Emergency Contact</string>
+    <string name="appoitnment_label">Appointments List</string>
+    <string name="reminder_label">Reminders List</string>
+    <string name="doctor_label">Doctors List</string>
+
+    <string name="firstname_label">Firstname:</string>
+    <string name="lastname_label">Lastname:</string>
+    <string name="EmailID_label">Email Id:</string>
+    <string name="Contact_label">Contact:</string>
+    <string name="Address_label">Address:</string>
+    <string name="relation_label">Relation:</string>
+    <string name="password_label">Password:</string>
+
+    <string name="btn_login_label">Login</string>
+    <string name="btn_add_label">ADD</string>
+    <string name="btn_saveEC_label">Save</string>
+    <string name="btn_deleteEC_label">Delete</string>
+    <string name="btn_addEC">Delete</string>
+    <string name="btn_viewApt_label">View</string>
+    <string name="btn_cancelApt_label">Cancel</string>
+    <string name="btn_viewDoc_label">View</string>
+    <string name="btn_deleteDoc_label">Delete</string>
+    <string name="btn_viewRem_label">View</string>
+    <string name="btn_deleteRem_label">Delete</string>
 
 
 </resources>

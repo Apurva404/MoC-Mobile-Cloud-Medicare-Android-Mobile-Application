@@ -43,7 +43,7 @@ public class DoctorRegistration extends Activity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.doctoe_registration);
         Spinner dropdown = (Spinner)findViewById(R.id.dropDown);
-        String[] items = new String[]{"General Physician","Cardiology", "Neurology","Oncology","Allergy & Immunology", "Critical Care","Psychiatry", "Urology"};
+        String[] items = new String[]{"GeneralPhysician","Cardiology", "Neurology","Oncology","AllergyImmunology", "CriticalCare","Psychiatry", "Urology"};
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, R.layout.spinner_custom, items);
         dropdown.setAdapter(adapter);
         TextView lname = (TextView) findViewById(R.id.lname_doc);

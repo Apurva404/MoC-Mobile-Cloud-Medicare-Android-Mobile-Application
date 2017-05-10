@@ -23,7 +23,12 @@ public class ConfigConstant {
     public static final String insertDoctorCredential = "/doctor/credentials/add";
     public static final String insertPatientCredential = "/patient/credentials/add";
     public static final String authenticateDoctor = "/doctor/credentials/verify";
-    public static final String authenticatePatient = "/patient/credentials/verify";
+    public static final String authenticatePatient = "patient/credentials/verify";
+    public static final String DOCTOR_SPECIALITY="speciality";
+    public static final String PATIENT_EMERGENCY="/patient/emergencyContact/";
+    public static final String PATIENT_ADD_DOCTOR="patient/association/add";
+
+    public static final int INVALID_ID = -1;
 
 
 }

@@ -30,6 +30,10 @@ public class SessionManager
     public static final String FITBIT_TOKEN_TYPE = "fitbitTokenType";
     public static final String FITBIT_FULL_AUTH = "fitbitFullAuth";
 
+    public static final String EMERGENCY_CONTACT = "emergencyContact";
+    public static final String EMERGENCY_ID = "emergencyID";
+
+
 
 
     public SessionManager(Context context)
@@ -108,6 +112,20 @@ public class SessionManager
         return user;
     }
 
+    public void createEmergencyContact(String contact, String ID)
+    {
+        editor.putString(EMERGENCY_ID, ID);
+        editor.putString(EMERGENCY_CONTACT,contact);
+    }
+
+    public HashMap<String, String> getEmergencyContact()
+    {
+        HashMap<String, String> E = new HashMap<>();
+        E.put(EMERGENCY_CONTACT, pref.getString(EMERGENCY_CONTACT,null));
+        E.put(EMERGENCY_ID, pref.getString(EMERGENCY_ID,null));
+
+        return E;
+    }
 
     public void logoutUser()
     {

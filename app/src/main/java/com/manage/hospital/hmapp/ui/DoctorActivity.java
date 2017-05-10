@@ -11,11 +11,16 @@ import android.view.MenuItem;
 import com.manage.hospital.hmapp.Extras.Interface.DoctorFragmentToDoctorActivity;
 import com.manage.hospital.hmapp.R;
 
+import java.util.HashMap;
+
 /**
  * Created by suma khursheed on 4/25/2017.
  */
 
-public class DoctorActivity extends AppCompatActivity implements DoctorFragmentToDoctorActivity {
+public class DoctorActivity extends AppCompatActivity implements DoctorFragmentToDoctorActivity,DoctorFragment.DocFragmentInteractionListener {
+
+    public static final int ADD_DOCTOR_RESULT_CODE=10;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,4 +66,21 @@ public class DoctorActivity extends AppCompatActivity implements DoctorFragmentT
         super.onBackPressed();
     }
 
+    @Override
+    public void onFragmentInteraction() {
+        Intent intent=new Intent(DoctorActivity.this,PatientAddDoctorActivity.class);
+        startActivityForResult(intent,ADD_DOCTOR_RESULT_CODE);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if(requestCode==ADD_DOCTOR_RESULT_CODE){
+            if(resultCode==RESULT_OK){
+                DoctorFragment docFragment=(DoctorFragment)getSupportFragmentManager().findFragmentById(R.id.frame_doclist);
+                docFragment.updateDoctorList();
+            }else if(resultCode==RESULT_CANCELED){
+
+            }
+        }
+    }
 }

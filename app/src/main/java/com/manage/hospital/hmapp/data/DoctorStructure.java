@@ -52,15 +52,17 @@ public class DoctorStructure {
 
     public String getGender() {return gender;}
 
-    //public String getDocId() {return doc_id;}
+    public String getDocId() {return doc_id;}
 
     public DoctorStructure(JSONObject jsonObject){
 
         try {
+            doc_id=jsonObject.getString("Doctor_Id");
             doctor_fname=jsonObject.getString("Firstname");
             doctor_lname=jsonObject.getString("Lastname");
             doctor_spec=jsonObject.getString("Speciality");
             email=jsonObject.getString("Email_Id");
+            dob=jsonObject.getString("DOB");
             license_number=jsonObject.getString("LicenseNumber");
             contact_num=jsonObject.getString("ContactNo");
             address=jsonObject.getString("Address");

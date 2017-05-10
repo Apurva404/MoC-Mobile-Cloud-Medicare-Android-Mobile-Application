@@ -20,6 +20,7 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.TimePicker;
 
+import com.manage.hospital.hmapp.Extras.broadcast_receiver.Alarm_Receiver;
 import com.manage.hospital.hmapp.R;
 
 import java.util.Calendar;

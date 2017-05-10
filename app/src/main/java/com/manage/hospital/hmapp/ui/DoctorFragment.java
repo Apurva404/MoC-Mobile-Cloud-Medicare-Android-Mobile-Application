@@ -43,6 +43,7 @@ import java.util.HashMap;
 public class DoctorFragment extends Fragment implements SwipeRefreshLayout.OnRefreshListener {
 
 
+    private DocFragmentInteractionListener fragListener;
     private SwipeRefreshLayout swipeRefreshLayout;
     private RecyclerView recyclerViewDoctor;
     DocListAdapter DoctorListAdapter;
@@ -76,13 +77,22 @@ public class DoctorFragment extends Fragment implements SwipeRefreshLayout.OnRef
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(view.getContext(), ReminderMainActivity.class);
-                startActivity(intent);
+                onButtonPressed();
             }
         });
 
         return root_view;
 
+    }
+
+    public void updateDoctorList(){
+        getDoctorList();
+    }
+
+    public void onButtonPressed() {
+        if (fragListener != null) {
+            fragListener.onFragmentInteraction();
+        }
     }
 
     @Override
@@ -94,17 +104,25 @@ public class DoctorFragment extends Fragment implements SwipeRefreshLayout.OnRef
             throw new RuntimeException(context.toString()
                     + " must implement volunteer listener");
         }
+
+        if (context instanceof DocFragmentInteractionListener) {
+            fragListener = (DocFragmentInteractionListener) context;
+        } else {
+            throw new RuntimeException(context.toString()
+                    + " must implement DocFragmentInteractionListener");
+        }
     }
 
     @Override
     public void onDetach() {
         super.onDetach();
         doctorItemListener = null;
+        fragListener=null;
     }
 
     public void getDoctorList(){
         FetchDoctorListTask fetchDoctorListTask=new FetchDoctorListTask();
-        fetchDoctorListTask.execute("1");
+        fetchDoctorListTask.execute(pt_id);
     }
 
     public void doctorItemClick(int position){
@@ -226,7 +244,6 @@ public class DoctorFragment extends Fragment implements SwipeRefreshLayout.OnRef
         protected void onPostExecute(DoctorData result){
             if(result!=null){
 
-                //TODO: set the adapter
                 if(DoctorListAdapter==null) {
                 DoctorListAdapter=new DocListAdapter(getContext(),result.data);
                 recyclerViewDoctor.setAdapter(DoctorListAdapter);
@@ -245,5 +262,8 @@ public class DoctorFragment extends Fragment implements SwipeRefreshLayout.OnRef
     }
 
 
+    public interface DocFragmentInteractionListener {
+        void onFragmentInteraction();
+    }
 
 }

@@ -1,4 +1,4 @@
-package com.manage.hospital.hmapp.ui;
+package com.manage.hospital.hmapp.Extras.broadcast_receiver;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;

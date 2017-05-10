@@ -19,6 +19,8 @@
     <!--margin-->
     <dimen name="et_padding">5dp</dimen>
     <dimen name="btn_padding">10dp</dimen>
+    <dimen name="spinner_margin">10dp</dimen>
+    <dimen name="tv_left_margin">2dp</dimen>
 
     <dimen name="tv_body_size">16sp</dimen>
 

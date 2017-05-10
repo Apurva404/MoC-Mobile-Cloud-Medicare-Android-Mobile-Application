@@ -23,6 +23,7 @@ public class AlertDialogManager {
         {
             public void onClick(DialogInterface dialog, int which)
             {
+
             }
         });
 

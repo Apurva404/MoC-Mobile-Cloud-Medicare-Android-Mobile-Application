@@ -5,6 +5,7 @@
     <uses-permission android:name="android.permission.INTERNET"/>
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.SEND_SMS"/>
 
     <application
         android:allowBackup="true"
@@ -51,6 +52,16 @@
         <activity
             android:name="com.manage.hospital.hmapp.ui.DoctorDetailActivity"
             android:theme="@style/AppTheme" />
+
+        <activity
+            android:label="Emergency Contact"
+            android:name="com.manage.hospital.hmapp.ui.ManageEmergencyContactActivity" >
+        </activity>
+        <activity
+            android:label="Appointment"
+            android:name="com.manage.hospital.hmapp.ui.ManageAppointmentActivity" >
+        </activity>
+
         <activity
             android:name="com.manage.hospital.hmapp.ui.PatientMainActivity">
             <intent-filter>
@@ -66,6 +77,9 @@
             android:theme="@style/AppTheme" />
         <activity
             android:name="com.manage.hospital.hmapp.ui.PatientDetailActivity"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name="com.manage.hospital.hmapp.ui.PatientAddDoctorActivity"
             android:theme="@style/AppTheme" />
         <activity
             android:name="com.manage.hospital.hmapp.ui.FitbitActivity"
@@ -111,10 +125,10 @@
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar" />
 
-        <receiver android:name=".ui.Alarm_Receiver" />
+        <receiver android:name=".Extras.broadcast_receiver.Alarm_Receiver" />
 
         <service
-            android:name="com.manage.hospital.hmapp.ui.RingtonePlayingService"
+            android:name=".Extras.broadcast_receiver.RingtonePlayingService"
             android:enabled="true"></service>
 
         <activity android:name=".Extras.fitbit.FitbitTokenResponse"
@@ -126,6 +140,7 @@
                 <data android:scheme="hospapp" android:host="callbackresponse"/>
             </intent-filter>
         </activity>
+        <service android:name=".Extras.broadcast_receiver.FallDetectService"/>
 
     </application>
 
