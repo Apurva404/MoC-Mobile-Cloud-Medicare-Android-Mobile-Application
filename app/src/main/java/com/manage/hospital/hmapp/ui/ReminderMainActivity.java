@@ -45,7 +45,8 @@ public class ReminderMainActivity extends AppCompatActivity
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
-        getSupportActionBar().setIcon(R.mipmap.logo);
+        getSupportActionBar().setTitle("Reminder List");
+        //getSupportActionBar().setIcon(R.mipmap.logo);
 
         final TabLayout tabLayout = (TabLayout) findViewById(R.id.tab_layout);
         tabLayout.addTab(tabLayout.newTab().setText(getResources().getString(R.string.pending)));
