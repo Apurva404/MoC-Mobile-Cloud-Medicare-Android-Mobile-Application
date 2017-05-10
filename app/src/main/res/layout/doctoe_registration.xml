@@ -14,7 +14,7 @@
         android:layout_height="40dp"
         android:textSize="25dp"
         android:textAlignment="center"
-        android:textColor="@color/blue" />
+        android:textColor="@color/colorPrimary" />
 
     <TextView
         android:text="Speciality"
@@ -26,7 +26,7 @@
         android:layout_alignStart="@+id/textView16"
         android:layout_width="155dp"
         android:textAlignment="textEnd"
-        android:textColor="@color/blue" />
+        android:textColor="@color/colorPrimary" />
 
     <Button
         android:text="Back"
@@ -36,7 +36,7 @@
         android:layout_toStartOf="@+id/password_patient"
         android:layout_marginEnd="26dp"
         android:id="@+id/button6"
-        android:background="@color/blue"
+        android:background="@color/colorPrimary"
         android:onClick="finishDoctorRegistration"
         android:layout_height="40dp"
         android:textColor="@color/white" />
@@ -50,7 +50,7 @@
         android:layout_marginEnd="14dp"
         android:layout_alignParentBottom="true"
         android:layout_alignEnd="@+id/password_patient"
-        android:background="@color/blue"
+        android:background="@color/colorPrimary"
         android:onClick="LoginDoctorRegistration"
         android:layout_height="40dp"
         android:textColor="@color/white" />
@@ -65,7 +65,7 @@
         android:layout_alignTop="@+id/textView16"
         android:layout_toEndOf="@+id/textView16"
         android:layout_marginStart="14dp"
-        android:textColor="@color/blue" />
+        android:textColor="@color/colorPrimary" />
 
     <EditText
         android:layout_width="150dp"
@@ -76,7 +76,7 @@
         android:id="@+id/password_patient"
         android:layout_alignTop="@+id/textView19"
         android:layout_alignStart="@+id/uname_doc"
-        android:textColor="@color/blue" />
+        android:textColor="@color/colorPrimary" />
 
     <ImageView
         android:layout_width="75dp"
@@ -97,7 +97,7 @@
         android:textAlignment="textEnd"
         android:layout_below="@+id/textView17"
         android:layout_alignStart="@+id/textView17"
-        android:textColor="@color/blue" />
+        android:textColor="@color/colorPrimary" />
 
     <TextView
         android:text="Username"
@@ -109,7 +109,7 @@
         android:layout_below="@+id/textView10"
         android:layout_alignStart="@+id/textView10"
         android:layout_marginTop="20dp"
-        android:textColor="@color/blue" />
+        android:textColor="@color/colorPrimary" />
 
     <TextView
         android:text="Password"
@@ -121,7 +121,7 @@
         android:layout_below="@+id/textView18"
         android:layout_alignStart="@+id/textView18"
         android:layout_marginTop="21dp"
-        android:textColor="@color/blue" />
+        android:textColor="@color/colorPrimary" />
 
     <EditText
         android:layout_width="150dp"
@@ -132,7 +132,7 @@
         android:id="@+id/clinic"
         android:layout_alignTop="@+id/textView10"
         android:layout_alignStart="@+id/license"
-        android:textColor="@color/blue" />
+        android:textColor="@color/colorPrimary" />
 
     <EditText
         android:layout_width="150dp"
@@ -143,7 +143,7 @@
         android:id="@+id/uname_doc"
         android:layout_alignTop="@+id/textView18"
         android:layout_alignStart="@+id/clinic"
-        android:textColor="@color/blue" />
+        android:textColor="@color/colorPrimary" />
 
     <TextView
         android:text=" Kindly complete the following form."
@@ -154,7 +154,7 @@
         android:layout_height="30dp"
         android:layout_below="@+id/imageView"
         android:layout_alignStart="@+id/textView17"
-        android:textColor="@color/blue" />
+        android:textColor="@color/colorPrimary" />
 
     <TextView
         android:layout_width="150dp"
@@ -164,7 +164,7 @@
         android:textSize="25dp"
         android:layout_below="@+id/textView12"
         android:textAlignment="center"
-        android:textColor="@color/blue" />
+        android:textColor="@color/colorPrimary" />
 
     <Spinner
         android:id="@+id/dropDown"
@@ -182,7 +182,7 @@
         android:id="@+id/textView16"
         android:layout_marginStart="33dp"
         android:layout_width="155dp"
-        android:textColor="@color/blue"
+        android:textColor="@color/colorPrimary"
         android:layout_below="@+id/textView15"
         android:layout_alignParentStart="true"
         android:textAlignment="textEnd" />

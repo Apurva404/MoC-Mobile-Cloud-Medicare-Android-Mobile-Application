@@ -163,6 +163,7 @@
      <string name="card_det_doctor_dob">Date of Birth</string>
      <string name="card_det_doctor_licenseno">License Number</string>
     <string name="card_det_doctor_gender">Gender</string>
+    <string name="pat_request_health_btn">Request Health Data</string>
 
 
     <string name="app_label">Add Emergency Contact</string>
@@ -190,6 +191,7 @@
     <string name="btn_deleteDoc_label">Delete</string>
     <string name="btn_viewRem_label">View</string>
     <string name="btn_deleteRem_label">Delete</string>
+
 
 
 </resources>

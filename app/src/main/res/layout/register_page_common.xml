@@ -12,7 +12,7 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="16dp"
-        android:textColor="@color/blue" />
+        android:textColor="@color/colorPrimary" />
 
     <TextView
         android:text="Gender"
@@ -24,7 +24,7 @@
         android:layout_marginTop="12dp"
         android:id="@+id/textView14"
         android:textAlignment="textEnd"
-        android:textColor="@color/blue" />
+        android:textColor="@color/colorPrimary" />
 
     <EditText
         android:layout_width="150dp"
@@ -82,7 +82,7 @@
         android:layout_below="@+id/textView8"
         android:layout_alignStart="@+id/textView8"
         android:textAlignment="textEnd"
-        android:textColor="@color/blue" />
+        android:textColor="@color/colorPrimary" />
 
     <EditText
         android:layout_width="150dp"
@@ -99,7 +99,7 @@
         android:text="Back"
         android:layout_width="100dp"
         android:id="@+id/button3"
-        android:background="@color/blue"
+        android:background="@color/colorPrimary"
         android:onClick="finishRegistration"
         android:layout_marginTop="30dp"
         android:layout_below="@+id/textView14"
@@ -122,7 +122,7 @@
             android:layout_height="wrap_content"
             android:id="@+id/rd_doctor"
             android:layout_weight="1"
-            android:textColor="@color/blue" />
+            android:textColor="@color/colorPrimary" />
 
         <RadioButton
             android:text="Patient"
@@ -131,7 +131,7 @@
             android:id="@+id/rd_patient"
             android:layout_weight="1"
             android:checked="true"
-            android:textColor="@color/blue" />
+            android:textColor="@color/colorPrimary" />
     </RadioGroup>
 
     <TextView
@@ -144,7 +144,7 @@
         android:layout_marginStart="18dp"
         android:layout_alignTop="@+id/fname"
         android:layout_alignParentStart="true"
-        android:textColor="@color/blue" />
+        android:textColor="@color/colorPrimary" />
 
     <EditText
         android:layout_width="150dp"
@@ -170,7 +170,7 @@
         android:layout_marginBottom="21dp"
         android:layout_above="@+id/textView7"
         android:layout_alignStart="@+id/textView5"
-        android:textColor="@color/blue" />
+        android:textColor="@color/colorPrimary" />
 
     <TextView
         android:text="Email ID"
@@ -181,7 +181,7 @@
         android:textAlignment="textEnd"
         android:layout_alignTop="@+id/email"
         android:layout_alignStart="@+id/textView7"
-        android:textColor="@color/blue" />
+        android:textColor="@color/colorPrimary" />
 
     <TextView
         android:text="Date Of Birth"
@@ -192,14 +192,14 @@
         android:textAlignment="textEnd"
         android:layout_alignTop="@+id/DOB"
         android:layout_alignStart="@+id/textView6"
-        android:textColor="@color/blue" />
+        android:textColor="@color/colorPrimary" />
 
     <Button
         android:text="Next"
         android:layout_width="100dp"
         android:layout_height="40dp"
         android:id="@+id/button4"
-        android:background="@color/blue"
+        android:background="@color/colorPrimary"
         android:onClick="gotoNext"
         android:layout_marginStart="22dp"
         android:layout_toEndOf="@+id/button3"

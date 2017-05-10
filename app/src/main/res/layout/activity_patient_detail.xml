@@ -41,6 +41,7 @@
         </LinearLayout>
 
         <LinearLayout
+            android:id="@+id/patient_details_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
@@ -241,6 +242,15 @@
             </TableLayout>
 
         </LinearLayout>
+
+        <Button
+            android:id="@+id/btnRequestHealthData"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/pat_request_health_btn"
+            android:layout_margin="15dp"
+            android:background="@color/colorPrimary"
+            android:layout_below="@id/patient_details_layout"/>
 
 
     </RelativeLayout>

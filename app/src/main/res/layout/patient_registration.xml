@@ -11,7 +11,7 @@
         android:inputType="textMultiLine"
         android:ems="10"
         android:id="@+id/home"
-        android:textColor="@color/blue"
+        android:textColor="@color/colorPrimary"
         android:layout_alignTop="@+id/textView10"
         android:layout_alignEnd="@+id/textView15" />
 
@@ -25,7 +25,7 @@
         android:layout_marginTop="13dp"
         android:textAlignment="center"
         android:layout_height="wrap_content"
-        android:textColor="@color/blue" />
+        android:textColor="@color/colorPrimary" />
 
 
 
@@ -38,7 +38,7 @@
         android:layout_marginTop="18dp"
         android:layout_below="@+id/lname_patient"
         android:layout_alignStart="@+id/textView16"
-        android:textColor="@color/blue" />
+        android:textColor="@color/colorPrimary" />
 
     <TextView
         android:text="Mr.lastname"
@@ -49,7 +49,7 @@
         android:textAlignment="center"
         android:layout_below="@+id/textView12"
         android:layout_centerHorizontal="true"
-        android:textColor="@color/blue" />
+        android:textColor="@color/colorPrimary" />
 
     <ImageView
         android:layout_height="75dp"
@@ -69,7 +69,7 @@
         android:layout_alignParentStart="true"
         android:layout_marginStart="30dp"
         android:layout_width="155dp"
-        android:textColor="@color/blue"
+        android:textColor="@color/colorPrimary"
         android:textAlignment="textEnd" />
 
     <TextView
@@ -82,7 +82,7 @@
         android:layout_alignStart="@+id/textView16"
         android:layout_width="155dp"
         android:textAlignment="textEnd"
-        android:textColor="@color/blue" />
+        android:textColor="@color/colorPrimary" />
 
     <TextView
         android:text="Home Address"
@@ -94,7 +94,7 @@
         android:textAlignment="textEnd"
         android:layout_below="@+id/textView17"
         android:layout_alignStart="@+id/textView17"
-        android:textColor="@color/blue" />
+        android:textColor="@color/colorPrimary" />
 
     <TextView
         android:text="Username"
@@ -106,7 +106,7 @@
         android:layout_below="@+id/textView10"
         android:layout_alignStart="@+id/textView10"
         android:layout_marginTop="20dp"
-        android:textColor="@color/blue"
+        android:textColor="@color/colorPrimary"
         android:layout_alignEnd="@+id/textView10" />
 
     <TextView
@@ -119,7 +119,7 @@
         android:layout_below="@+id/textView18"
         android:layout_alignStart="@+id/textView18"
         android:layout_marginTop="21dp"
-        android:textColor="@color/blue" />
+        android:textColor="@color/colorPrimary" />
 
 
     <Button
@@ -127,7 +127,7 @@
         android:layout_width="100dp"
         android:textSize="15dp"
         android:id="@+id/button6"
-        android:background="@color/blue"
+        android:background="@color/colorPrimary"
         android:onClick="finishPatientRegistration"
         android:layout_height="40dp"
         android:textColor="@color/white"
@@ -140,7 +140,7 @@
         android:layout_width="100dp"
         android:textSize="15dp"
         android:id="@+id/button5"
-        android:background="@color/blue"
+        android:background="@color/colorPrimary"
         android:onClick="LoginPatientRegistration"
         android:layout_marginStart="21dp"
         android:layout_height="40dp"
@@ -156,7 +156,7 @@
         android:background="@color/white"
         android:ems="10"
         android:id="@+id/password_patient"
-        android:textColor="@color/blue"
+        android:textColor="@color/colorPrimary"
         android:layout_alignTop="@+id/textView19"
         android:layout_alignStart="@+id/uname_patient" />
 
@@ -167,7 +167,7 @@
         android:background="@color/white"
         android:ems="10"
         android:id="@+id/age"
-        android:textColor="@color/blue"
+        android:textColor="@color/colorPrimary"
         android:layout_alignTop="@+id/textView16"
         android:layout_alignEnd="@+id/textView15" />
 
@@ -178,7 +178,7 @@
         android:inputType="textMultiLine"
         android:ems="10"
         android:id="@+id/weight"
-        android:textColor="@color/blue"
+        android:textColor="@color/colorPrimary"
         android:layout_alignBaseline="@+id/textView17"
         android:layout_alignBottom="@+id/textView17"
         android:layout_alignStart="@+id/age" />
@@ -190,7 +190,7 @@
         android:background="@color/white"
         android:ems="10"
         android:id="@+id/uname_patient"
-        android:textColor="@color/blue"
+        android:textColor="@color/colorPrimary"
         android:layout_alignTop="@+id/textView18"
         android:layout_alignStart="@+id/home" />
 

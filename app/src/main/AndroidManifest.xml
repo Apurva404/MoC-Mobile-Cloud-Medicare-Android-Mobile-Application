@@ -16,6 +16,15 @@
         <activity android:name=".ui.DoctorMainActivity">
 
         </activity>
+
+        <activity
+            android:name="com.manage.hospital.hmapp.ui.LauncherActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity
             android:name="com.manage.hospital.hmapp.ui.Registration"
             android:label="Registration" >
@@ -54,6 +63,10 @@
             android:theme="@style/AppTheme" />
 
         <activity
+            android:name="com.manage.hospital.hmapp.ui.PatientMainActivity"
+            android:theme="@style/NoActionBarTheme" />
+
+        <activity
             android:label="Emergency Contact"
             android:name="com.manage.hospital.hmapp.ui.ManageEmergencyContactActivity" >
         </activity>
@@ -61,17 +74,6 @@
             android:label="Appointment"
             android:name="com.manage.hospital.hmapp.ui.ManageAppointmentActivity" >
         </activity>
-
-        <activity
-            android:name="com.manage.hospital.hmapp.ui.PatientMainActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-            </activity>
-        <activity
-            android:name="com.manage.hospital.hmapp.ui.LauncherActivity" />
         <activity
             android:name="com.manage.hospital.hmapp.ui.PatientSourceActivity"
             android:theme="@style/AppTheme" />

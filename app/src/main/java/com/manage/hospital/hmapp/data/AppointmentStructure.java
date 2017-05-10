@@ -18,8 +18,8 @@ public class AppointmentStructure {
     public AppointmentStructure(JSONObject jsonObject){
 
         try {
-            //patient_name = jsonObject.getString("");
-            appointment_date_time = jsonObject.getString("Remider_Date");
+            patient_name = jsonObject.getString("Patient_FullName");
+            appointment_date_time = jsonObject.getString("Reminder_Date");
             appointment_status = jsonObject.getString("Appointment_Status");
             appointment_desc=jsonObject.getString("Description");
             appointment_id=jsonObject.getString("Appointment_Id");

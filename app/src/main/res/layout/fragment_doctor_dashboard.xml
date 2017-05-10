@@ -4,5 +4,11 @@
     android:layout_height="match_parent"
     tools:context=".ui.DoctorDashboardFragment">
 
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/healthcare_bg"
+        android:scaleType="fitXY"/>
+
 
 </FrameLayout>

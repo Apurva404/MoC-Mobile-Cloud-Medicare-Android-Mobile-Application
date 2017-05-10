@@ -3,7 +3,7 @@
     android:layout_width="match_parent" android:layout_height="match_parent">
 
     <TextView
-        android:text="Sign In !"
+        android:text="Sign In"
         android:layout_width="150dp"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
@@ -12,7 +12,7 @@
         android:textSize="30dp"
         android:layout_height="40dp"
         android:textAlignment="center"
-        android:textColor="@color/blue" />
+        android:textColor="@color/colorPrimary" />
 
     <EditText
         android:inputType="textPersonName"
@@ -25,7 +25,7 @@
         android:layout_below="@+id/textView13"
         android:layout_centerHorizontal="true"
         android:textAlignment="center"
-        android:textColor="@color/blue" />
+        android:textColor="@color/colorPrimary" />
 
     <RadioGroup
         android:orientation="horizontal"
@@ -64,10 +64,10 @@
         android:layout_below="@+id/uname_login"
         android:layout_alignStart="@+id/uname_login"
         android:textAlignment="center"
-        android:textColor="@color/blue" />
+        android:textColor="@color/colorPrimary" />
 
     <Button
-        android:text="Login"
+        android:text="LOGIN"
         android:layout_height="40dp"
         android:id="@+id/login"
         android:layout_width="250dp"
@@ -75,15 +75,15 @@
         android:layout_below="@+id/password_login"
         android:layout_alignStart="@+id/password_login"
         android:textColor="@color/white"
-        android:background="@color/blue" />
+        android:background="@color/colorPrimary" />
 
     <Button
-        android:text="Cancel"
+        android:text="CANCEL"
         android:layout_width="250dp"
         android:layout_height="40dp"
         android:id="@+id/button8"
         android:onClick="finishLoginActivity"
-        android:background="@color/blue"
+        android:background="@color/colorPrimary"
         android:textColor="@color/white"
         android:layout_below="@+id/login"
         android:layout_alignStart="@+id/login"

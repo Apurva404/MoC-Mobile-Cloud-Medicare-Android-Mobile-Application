@@ -89,7 +89,7 @@ public class AppointmentDetailActivity extends AppCompatActivity implements View
         appDateTitle.setText(AppointmentData.getInstance().get(position).getAppointment_date_time());
         appStatus.setText(AppointmentData.getInstance().get(position).getAppointment_status());
         appId.setText("#"+AppointmentData.getInstance().get(position).getAppointment_id());
-        //patientName.setText(AppointmentData.getInstance().get(position).getPatient_name());
+        patientName.setText(AppointmentData.getInstance().get(position).getPatient_name());
         appDate.setText(AppointmentData.getInstance().get(position).getAppointment_date_time());
         appDesc.setText(AppointmentData.getInstance().get(position).getAppointment_desc());
     }

@@ -45,7 +45,7 @@ public class LauncherActivity extends Activity
             //setContentView(R.layout.home);
             // Session class instance
             session = new SessionManager(getApplicationContext());
-            Toast.makeText(getApplicationContext(), "User Login Status: " + session.isLoggedIn(), Toast.LENGTH_LONG).show();
+            //Toast.makeText(getApplicationContext(), "User Login Status: " + session.isLoggedIn(), Toast.LENGTH_LONG).show();
             session.checkLogin();
 
             HashMap<String, String> user = session.getUserDetails();

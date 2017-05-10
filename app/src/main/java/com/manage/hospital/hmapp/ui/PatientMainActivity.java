@@ -86,10 +86,10 @@ public class PatientMainActivity extends AppCompatActivity implements PatientDas
         }
 
         sessionManager=new SessionManager(PatientMainActivity.this);
-        HashMap<String, String> user = sessionManager.getUserDetails();
-        //HashMap<String, String> emergencyContact = sessionManager.getEmergencyContact(); 
-        //contactNo = emergencyContact.get(SessionManager.EMERGENCY_CONTACT);
-        patient_id = user.get(SessionManager.KEY_ID);
+        HashMap<String,String> user=sessionManager.getUserDetails();
+        HashMap<String,String> emergencyContact=sessionManager.getEmergencyContact();
+        contactNo=emergencyContact.get(SessionManager.EMERGENCY_CONTACT);
+        patient_id=user.get(SessionManager.KEY_ID);
 
         if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.M) //ToDo add this in onCreate
         {
@@ -268,7 +268,7 @@ public class PatientMainActivity extends AppCompatActivity implements PatientDas
         */
 
         try {
-            SmsManager.getDefault().sendTextMessage("6692435891", null, "Alert:Patient has fallen, attention needed!", null, null); //TODO ADD emergency contact number
+            SmsManager.getDefault().sendTextMessage(contactNo, null, "Alert:Patient has fallen, attention needed!", null, null); //TODO ADD emergency contact number
 
             Toast.makeText(getApplicationContext(), "Alert message sent to emergency contact", Toast.LENGTH_LONG).show();
         } catch (Exception e) {
@@ -364,6 +364,7 @@ public class PatientMainActivity extends AppCompatActivity implements PatientDas
                             public void onClick(DialogInterface dialogInterface, int i) {
                                 dialogInterface.cancel();
                                 Intent intent=new Intent(PatientMainActivity.this,ManageEmergencyContactActivity.class);
+                                intent.putExtra("PatientId", patient_id);
                                 startActivity(intent);
                             }
                         })

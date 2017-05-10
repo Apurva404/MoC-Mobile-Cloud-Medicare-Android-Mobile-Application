@@ -62,7 +62,7 @@ public class LoginActivity extends Activity
         RadioButton rd1 = (RadioButton) findViewById(R.id.doc_rd);
         RadioButton rd2 = (RadioButton) findViewById(R.id.patient_rd);
 
-        Toast.makeText(getApplicationContext(), "User Login Status: " + session.isLoggedIn(), Toast.LENGTH_LONG).show();
+        //Toast.makeText(getApplicationContext(), "User Login Status: " + session.isLoggedIn(), Toast.LENGTH_LONG).show();
 
         btnLogin = (Button) findViewById(R.id.login);
 

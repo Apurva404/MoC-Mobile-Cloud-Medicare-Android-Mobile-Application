@@ -5,6 +5,8 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.manage.hospital.hmapp.R;
@@ -24,6 +26,7 @@ public class PatientDetailActivity extends AppCompatActivity {
     TextView patientDetailContact;
     TextView patientDetailEmail;
     TextView patientDetailWeight;
+    Button btnRequestHealthData;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -48,6 +51,13 @@ public class PatientDetailActivity extends AppCompatActivity {
         patientDetailContact=(TextView)findViewById(R.id.card_pat_detail_contact);
         patientDetailEmail=(TextView)findViewById(R.id.card_pat_detail_email);
         patientDetailWeight=(TextView)findViewById(R.id.card_pat_detail_weight);
+        btnRequestHealthData=(Button)findViewById(R.id.btnRequestHealthData);
+        btnRequestHealthData.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
 
         setValues();
     }

@@ -44,7 +44,7 @@ public class AppointmentListAdapter extends RecyclerView.Adapter<AppointmentList
     public void onBindViewHolder(AppointmentViewHolder holder, int position) {
 
         AppointmentStructure appObj = appointmentList.get(position);
-        //holder.patientName.setText(appObj.getPatient_name());
+        holder.patientName.setText(appObj.getPatient_name());
         if(appObj.getAppointment_status().equals(context.getResources().getString(R.string.appt_status_requested))) {
             holder.status.setText("Request Pending");
             holder.status.setTextColor(ContextCompat.getColor(context,R.color.yellowColor));
@@ -89,7 +89,7 @@ public class AppointmentListAdapter extends RecyclerView.Adapter<AppointmentList
         public AppointmentViewHolder(View itemView) {
             super(itemView);
 
-            //patientName = (TextView) itemView.findViewById(R.id.card_patient_name);
+            patientName = (TextView) itemView.findViewById(R.id.card_patient_name);
             status = (TextView) itemView.findViewById(R.id.card_status);
             appDate = (TextView) itemView.findViewById(R.id.card_date);
             appDesc=(TextView)itemView.findViewById(R.id.card_app_desc);

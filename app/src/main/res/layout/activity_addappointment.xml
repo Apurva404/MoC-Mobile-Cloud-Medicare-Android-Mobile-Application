@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@color/blue"
+    android:background="@color/colorPrimary"
     android:padding="8dip">
     <RelativeLayout
         android:layout_width="match_parent"
@@ -41,7 +41,7 @@
             android:background="@color/white"
             android:layout_toRightOf="@id/description"
             android:textSize="15dp"
-            android:textColor="@color/blue"
+            android:textColor="@color/colorPrimary"
             android:hint="Purpose of appointment"
             />
     </RelativeLayout>
@@ -69,7 +69,7 @@
             android:background="@color/white"
             android:layout_toRightOf="@id/date"
             android:textSize="15dp"
-            android:textColor="@color/blue"
+            android:textColor="@color/colorPrimary"
             android:hint="MM/DD/YYYY"/>
     </RelativeLayout>
     <RelativeLayout
@@ -95,7 +95,7 @@
             android:background="@color/white"
             android:layout_toRightOf="@id/doctor"
             android:textSize="15dp"
-            android:textColor="@color/blue"
+            android:textColor="@color/colorPrimary"
             android:hint ="Select one of your associated doctors"
             />
     </RelativeLayout>
@@ -112,7 +112,7 @@
             android:layout_centerHorizontal="true"
             android:layout_marginTop="100dp"
             android:background="@color/white"
-            android:textColor="@color/blue"
+            android:textColor="@color/colorPrimary"
             android:text="@string/btn_add_label"
             android:textSize="18sp"
             android:textAllCaps="false"
@@ -130,7 +130,7 @@
             android:layout_centerHorizontal="true"
             android:layout_alignParentBottom="true"
             android:background="@color/white"
-            android:textColor="@color/blue"
+            android:textColor="@color/colorPrimary"
             android:text="BACK"
             android:textSize="18sp"
             android:textAllCaps="false"

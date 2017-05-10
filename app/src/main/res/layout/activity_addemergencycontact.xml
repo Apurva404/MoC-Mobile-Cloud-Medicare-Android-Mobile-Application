@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@color/blue"
+    android:background="@color/colorPrimary"
     android:padding="8dip">
     <RelativeLayout
         android:layout_width="match_parent"
@@ -41,7 +41,7 @@
             android:background="@color/white"
             android:layout_toRightOf="@id/firstname"
             android:textSize="15dp"
-            android:textColor="@color/blue"
+            android:textColor="@color/colorPrimary"
             />
     </RelativeLayout>
     <RelativeLayout
@@ -67,7 +67,7 @@
             android:background="@color/white"
             android:layout_toRightOf="@id/lastname"
             android:textSize="15dp"
-            android:textColor="@color/blue"
+            android:textColor="@color/colorPrimary"
             />
     </RelativeLayout>
     <RelativeLayout
@@ -93,7 +93,7 @@
             android:background="@color/white"
             android:layout_toRightOf="@id/emailId"
             android:textSize="15dp"
-            android:textColor="@color/blue"
+            android:textColor="@color/colorPrimary"
             />
     </RelativeLayout>
     <RelativeLayout
@@ -119,7 +119,7 @@
             android:background="@color/white"
             android:layout_toRightOf="@id/contact"
             android:textSize="15dp"
-            android:textColor="@color/blue"
+            android:textColor="@color/colorPrimary"
             />
     </RelativeLayout>
     <RelativeLayout
@@ -145,7 +145,7 @@
             android:background="@color/white"
             android:layout_toRightOf="@id/address"
             android:textSize="15dp"
-            android:textColor="@color/blue"
+            android:textColor="@color/colorPrimary"
             />
     </RelativeLayout>
     <RelativeLayout
@@ -171,7 +171,7 @@
             android:background="@color/white"
             android:layout_toRightOf="@id/relation"
             android:textSize="15dp"
-            android:textColor="@color/blue"
+            android:textColor="@color/colorPrimary"
             />
     </RelativeLayout>
     <RelativeLayout
@@ -185,7 +185,7 @@
             android:layout_height="50dp"
             android:layout_centerHorizontal="true"
             android:background="@color/white"
-            android:textColor="@color/blue"
+            android:textColor="@color/colorPrimary"
             android:text="@string/btn_add_label"
             android:textSize="18sp"
             android:textAllCaps="false"
@@ -203,7 +203,7 @@
             android:layout_centerHorizontal="true"
             android:layout_alignParentBottom="true"
             android:background="@color/white"
-            android:textColor="@color/blue"
+            android:textColor="@color/colorPrimary"
             android:text="BACK"
             android:textSize="18sp"
             android:textAllCaps="false"
