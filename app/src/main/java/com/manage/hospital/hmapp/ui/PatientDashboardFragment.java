@@ -42,6 +42,8 @@ import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
 
+import static com.manage.hospital.hmapp.ui.PatientMainActivity.contactNo;
+
 /**
  * Created by sindhya on 4/29/17.
  */
@@ -51,6 +53,9 @@ public class PatientDashboardFragment extends Fragment implements View.OnClickLi
     SharedPreferences sharedPreferences;
     FitbitListAdapter fitbitAdapter;
     RecyclerView recyclerViewFitbit;
+    SessionManager session;
+
+
 
     Button btnCallEmergency,btnCall911;
 
@@ -61,6 +66,8 @@ public class PatientDashboardFragment extends Fragment implements View.OnClickLi
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+
     }
 
     @Override
@@ -125,7 +132,14 @@ public class PatientDashboardFragment extends Fragment implements View.OnClickLi
     @Override
     public void onClick(View view) {
         int id=view.getId();
-        if(id==R.id.btn_call_emergency){
+        if(id==R.id.btn_call_emergency)
+        {
+            session = new SessionManager(getActivity());
+            HashMap<String,String> emergencyContact= session.getEmergencyContact();
+            //String contactNo = emergencyContact.get(SessionManager.EMERGENCY_CONTACT);
+            Intent callIntent = new Intent(Intent.ACTION_DIAL);
+            callIntent.setData(Uri.parse("tel:" + contactNo));
+            startActivity(callIntent);
 
         }else if(id==R.id.btn_call_911){
             Intent callIntent = new Intent(Intent.ACTION_DIAL);

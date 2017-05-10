@@ -4,7 +4,7 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
-    android:background="@color/colorPrimary">
+    android:background="@color/white">
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
@@ -15,7 +15,7 @@
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:text="@string/emergency_contact_label"
-            android:textColor="@color/white"
+            android:textColor="@color/colorPrimary"
             android:textSize="30dp"/>
     </RelativeLayout>
     <RelativeLayout
@@ -23,6 +23,23 @@
         android:layout_height="wrap_content"
         android:paddingTop ="40dp"
         android:paddingBottom="5sp">
+        1
+
+        <EditText
+            android:id="@+id/firstnameEditText"
+            android:layout_width="180dp"
+            android:layout_height="30dp"
+            android:layout_weight="60"
+            android:background="@color/white"
+            android:textSize="15dp"
+            android:textColor="@color/colorPrimary"
+            android:layout_alignBaseline="@+id/firstname"
+            android:layout_alignBottom="@+id/firstname"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginRight="39dp"
+            android:layout_marginEnd="39dp" />
+
         <TextView
             android:id="@+id/firstname"
             android:paddingLeft="20dp"
@@ -32,24 +49,33 @@
             android:gravity="end"
             android:textAlignment="textEnd"
             android:text="@string/firstname_label"
-            android:textColor="@color/white"
-            android:textSize="20dp"/>1
-        <EditText
-            android:id="@+id/firstnameEditText"
-            android:layout_width="180dp"
-            android:layout_height="30dp"
-            android:layout_weight="60"
-            android:background="@color/white"
-            android:layout_toRightOf="@id/firstname"
-            android:textSize="15dp"
             android:textColor="@color/colorPrimary"
-            />
+            android:textSize="20dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginLeft="13dp"
+            android:layout_marginStart="13dp" />
     </RelativeLayout>
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:paddingTop="10sp"
         android:paddingBottom="5sp">
+
+        <EditText
+            android:id="@+id/lastnameEditText"
+            android:layout_width="180dp"
+            android:layout_height="30dp"
+            android:background="@color/white"
+            android:textSize="15dp"
+            android:textColor="@color/colorPrimary"
+            android:layout_marginRight="40dp"
+            android:layout_marginEnd="40dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true" />
+
         <TextView
             android:id="@+id/lastname"
             android:paddingLeft="20dp"
@@ -59,23 +85,21 @@
             android:gravity="end"
             android:textAlignment="textEnd"
             android:text="@string/lastname_label"
-            android:textColor="@color/white"
-            android:textSize="20dp"/>
-        <EditText
-            android:id="@+id/lastnameEditText"
-            android:layout_width="180dp"
-            android:layout_height="30dp"
-            android:background="@color/white"
-            android:layout_toRightOf="@id/lastname"
-            android:textSize="15dp"
             android:textColor="@color/colorPrimary"
-            />
+            android:textSize="20dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginLeft="11dp"
+            android:layout_marginStart="11dp" />
     </RelativeLayout>
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:paddingTop="10sp"
         android:paddingBottom="5sp">
+
         <TextView
             android:id="@+id/emailId"
             android:paddingLeft="20dp"
@@ -85,23 +109,47 @@
             android:gravity="end"
             android:textAlignment="textEnd"
             android:text="@string/EmailID_label"
-            android:textColor="@color/white"
-            android:textSize="20dp"/>
+            android:textColor="@color/colorPrimary"
+            android:textSize="20dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginLeft="26dp"
+            android:layout_marginStart="26dp" />
+
         <EditText
             android:id="@+id/emailIdEditText"
             android:layout_width="180dp"
             android:layout_height="30dp"
             android:background="@color/white"
-            android:layout_toRightOf="@id/emailId"
             android:textSize="15dp"
             android:textColor="@color/colorPrimary"
-            />
+            android:layout_alignParentTop="true"
+            android:layout_toRightOf="@+id/emailId"
+            android:layout_toEndOf="@+id/emailId"
+            android:layout_marginLeft="35dp"
+            android:layout_marginStart="35dp" />
     </RelativeLayout>
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:paddingTop="10sp"
         android:paddingBottom="5sp">
+
+        <EditText
+            android:id="@+id/contactEditText"
+            android:layout_width="180dp"
+            android:layout_height="30dp"
+            android:background="@color/white"
+            android:textSize="15dp"
+            android:textColor="@color/colorPrimary"
+            android:layout_marginRight="41dp"
+            android:layout_marginEnd="41dp"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true" />
+
         <TextView
             android:id="@+id/contact"
             android:paddingLeft="20dp"
@@ -111,23 +159,35 @@
             android:gravity="end"
             android:textAlignment="textEnd"
             android:text="@string/Contact_label"
-            android:textColor="@color/white"
-            android:textSize="20dp"/>
-        <EditText
-            android:id="@+id/contactEditText"
-            android:layout_width="180dp"
-            android:layout_height="30dp"
-            android:background="@color/white"
-            android:layout_toRightOf="@id/contact"
-            android:textSize="15dp"
             android:textColor="@color/colorPrimary"
-            />
+            android:textSize="20dp"
+            android:layout_marginLeft="31dp"
+            android:layout_marginStart="31dp"
+            android:layout_alignBottom="@+id/contactEditText"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignTop="@+id/contactEditText" />
     </RelativeLayout>
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:paddingTop="10sp"
         android:paddingBottom="5sp">
+
+        <EditText
+            android:id="@+id/addressEditText"
+            android:layout_width="180dp"
+            android:layout_height="30dp"
+            android:background="@color/white"
+            android:textSize="15dp"
+            android:textColor="@color/colorPrimary"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginRight="42dp"
+            android:layout_marginEnd="42dp" />
+
         <TextView
             android:id="@+id/address"
             android:paddingLeft="20dp"
@@ -137,23 +197,34 @@
             android:gravity="end"
             android:textAlignment="textEnd"
             android:text="@string/Address_label"
-            android:textColor="@color/white"
-            android:textSize="20dp"/>
-        <EditText
-            android:id="@+id/addressEditText"
-            android:layout_width="180dp"
-            android:layout_height="30dp"
-            android:background="@color/white"
-            android:layout_toRightOf="@id/address"
-            android:textSize="15dp"
             android:textColor="@color/colorPrimary"
-            />
+            android:textSize="20dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginLeft="22dp"
+            android:layout_marginStart="22dp" />
     </RelativeLayout>
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:paddingTop="10sp"
         android:paddingBottom="5sp">
+
+        <EditText
+            android:id="@+id/relationEditText"
+            android:layout_width="180dp"
+            android:layout_height="30dp"
+            android:background="@color/white"
+            android:textSize="15dp"
+            android:textColor="@color/colorPrimary"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginRight="41dp"
+            android:layout_marginEnd="41dp" />
+
         <TextView
             android:id="@+id/relation"
             android:paddingLeft="20dp"
@@ -163,18 +234,15 @@
             android:gravity="end"
             android:textAlignment="textEnd"
             android:text="@string/relation_label"
-            android:textColor="@color/white"
-            android:textSize="20dp"/>
-        <EditText
-            android:id="@+id/relationEditText"
-            android:layout_width="180dp"
-            android:layout_height="30dp"
-            android:background="@color/white"
-            android:layout_toRightOf="@id/relation"
-            android:textSize="15dp"
             android:textColor="@color/colorPrimary"
-            />
+            android:textSize="20dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginLeft="22dp"
+            android:layout_marginStart="22dp" />
     </RelativeLayout>
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -187,9 +255,9 @@
             android:layout_width="80dp"
             android:layout_height="40dp"
             android:layout_marginLeft="10dp"
-            android:background="@color/redColor"
+            android:background="@color/colorPrimary"
             android:text ="@string/btn_saveEC_label"
-            android:textColor="@color/white_overlay_8x"
+            android:textColor="@color/white"
             android:textSize="15dp"
             android:onClick="saveEmergencyContact"/>
         <Button
@@ -197,9 +265,9 @@
             android:layout_width="80dp"
             android:layout_height="40dp"
             android:layout_alignParentRight="true"
-            android:background="@color/redColor"
+            android:background="@color/colorPrimary"
             android:text ="@string/btn_deleteEC_label"
-            android:textColor="@color/white_overlay_8x"
+            android:textColor="@color/white"
             android:textSize="15dp"
             android:onClick="deleteEmergencyContact"/>
     </RelativeLayout>
@@ -208,9 +276,9 @@
         android:layout_width="80dp"
         android:layout_height="40dp"
         android:layout_gravity="center_horizontal"
-        android:background="@color/white"
+        android:background="@color/colorPrimary"
         android:text ="Back"
-        android:textColor="@color/white_overlay_8x"
+        android:textColor="@color/white"
         android:textSize="15dp"
         android:onClick="backFromEC"/>
 

@@ -4,7 +4,7 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
-    android:background="@color/colorPrimary">
+    android:background="@color/white">
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
@@ -15,7 +15,7 @@
             android:layout_height="100dp"
             android:layout_centerHorizontal="true"
             android:text="@string/appoitnment_label"
-            android:textColor="@color/white"
+            android:textColor="@color/colorPrimary"
             android:textSize="30dp"/>
     </RelativeLayout>
     <RelativeLayout
@@ -39,12 +39,13 @@
             android:layout_width="80dp"
             android:layout_height="40dp"
             android:layout_alignParentRight="true"
-            android:background="@color/redColor"
+            android:background="@color/colorPrimary"
             android:text ="@string/btn_cancelApt_label"
-            android:textColor="@color/white_overlay_8x"
+            android:textColor="@color/white"
             android:textSize="15dp"
             android:onClick="deleteAppointment"/>
     </RelativeLayout>
+
     <RelativeLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -54,21 +55,22 @@
             android:layout_width="100dp"
             android:layout_height="50dp"
             android:layout_marginLeft="140dp"
-            android:background="@color/white"
+            android:background="@color/colorPrimary"
             android:layout_alignParentBottom="true"
             android:layout_alignParentLeft="true"
             android:text ="Back"
-            android:onClick="backfromAppointmentList"/>
+            android:onClick="backfromAppointmentList"
+            android:textColor="@color/white" />
         <ImageButton
             android:id="@+id/addAptButton"
-            android:layout_width="100dp"
-            android:layout_height="80dp"
             android:background="@color/colorPrimary"
             android:layout_alignParentBottom="true"
             android:layout_alignParentRight="true"
             android:contentDescription="@string/btn_addEC"
             android:src="@drawable/ic_action_add"
-            android:onClick="launchAddAppointmentView"/>
+            android:onClick="launchAddAppointmentView"
+            android:layout_width="50dp"
+            android:layout_height="50dp" />
     </RelativeLayout>
 
 </LinearLayout>

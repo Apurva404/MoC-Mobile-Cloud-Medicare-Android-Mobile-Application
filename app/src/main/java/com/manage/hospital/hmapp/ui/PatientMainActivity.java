@@ -61,7 +61,7 @@ public class PatientMainActivity extends AppCompatActivity implements PatientDas
     TextView textUserName;
     Intent intent;
     String patient_id;
-    String contactNo;
+    public static String contactNo;
 
 
     private static final int PERMISSION_REQUEST_CODE = 1;
@@ -87,8 +87,8 @@ public class PatientMainActivity extends AppCompatActivity implements PatientDas
 
         sessionManager=new SessionManager(PatientMainActivity.this);
         HashMap<String,String> user=sessionManager.getUserDetails();
-        HashMap<String,String> emergencyContact=sessionManager.getEmergencyContact();
-        contactNo=emergencyContact.get(SessionManager.EMERGENCY_CONTACT);
+        //System.out.println("Emer Contact from shared pref:"+emergencyContact.get(SessionManager.EMERGENCY_CONTACT));
+        //contactNo=emergencyContact.get(SessionManager.EMERGENCY_CONTACT);
         patient_id=user.get(SessionManager.KEY_ID);
 
         if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.M) //ToDo add this in onCreate
@@ -110,6 +110,8 @@ public class PatientMainActivity extends AppCompatActivity implements PatientDas
         mStartTimestamp = System.currentTimeMillis();
 
         new AsyncTaskCheckEmergency().execute(Integer.parseInt(patient_id));
+
+
 
         Intent intent = new Intent(this, FallDetectService.class);
         startService(intent);
@@ -192,6 +194,8 @@ public class PatientMainActivity extends AppCompatActivity implements PatientDas
         Intent intent = new Intent(this, FallDetectService.class);
         stopService(intent);
         super.onDestroy();
+        unregisterReceiver(accelDataReceiver);
+        unregisterReceiver(fallDetectionReceiver);
     }
 
     public void displayActivity(int position){
@@ -268,6 +272,7 @@ public class PatientMainActivity extends AppCompatActivity implements PatientDas
         */
 
         try {
+            System.out.println("Em contact: " + contactNo);
             SmsManager.getDefault().sendTextMessage(contactNo, null, "Alert:Patient has fallen, attention needed!", null, null); //TODO ADD emergency contact number
 
             Toast.makeText(getApplicationContext(), "Alert message sent to emergency contact", Toast.LENGTH_LONG).show();
@@ -351,6 +356,9 @@ public class PatientMainActivity extends AppCompatActivity implements PatientDas
                 session = new SessionManager(getApplicationContext());
                 System.out.println(E.get(0).toString() + E.get(1).toString());
                 session.createEmergencyContact(E.get(0).toString(), E.get(1).toString());
+                HashMap<String,String> emergencyContact=sessionManager.getEmergencyContact();
+                //contactNo = emergencyContact.get(SessionManager.EMERGENCY_CONTACT);
+                contactNo = E.get(0).toString();
             }
             else
             {
