@@ -50,8 +50,8 @@ public class RingtonePlayingService extends Service {
                 intent_alarm_activity, 0);
 
         Notification notification_popup = new Notification.Builder(this)
-                .setContentTitle("An alarm is going off!")
-                .setContentText("Click me!")
+                .setContentTitle("Reminder Alert!")
+                .setContentText("You have a reminder set")
                 .setSmallIcon(R.drawable.ic_action_call)
                 .setContentIntent(pending_intent_alarm_activity)
                 .setAutoCancel(true)

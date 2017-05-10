@@ -153,9 +153,9 @@
     <string name="pat_doc_dialog_failure">Association not added. Try again!</string>
     <string name="pat_add_doc_dialog_ok">ok</string>
 
-    <!--Doctor Patients Detail Activity--> 
+    <!--Patients Doctor Detail Activity-->
 
-    <string name="patient_doctor_detail_title">Patient Details</string> 
+    <string name="patient_doctor_detail_title">Doctor Details</string>
      <string name="card_det_doctor_contact">Contact</string>
      <string name="card_det_doctor_email">Email Id</string>
      <string name="card_det_doctor_spec">Specialization</string>
