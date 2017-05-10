@@ -3,6 +3,7 @@ package com.manage.hospital.hmapp.ui;
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
 import android.content.Context;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -97,6 +98,10 @@ public class NewTaskActivity extends AppCompatActivity implements Validator.Vali
         button.setVisibility(View.GONE);
         calendar = null;
         updateTime();
+    }
+    public void setAlarm(View v){
+        Intent intent=new Intent(NewTaskActivity.this,AlarmActivity.class);
+        startActivity(intent);
     }
 
     public void showTimePickerDialog(View v) {

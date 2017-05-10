@@ -110,4 +110,19 @@
         android:nestedScrollingEnabled="false"
         android:visibility="gone" />
 
+    <Button
+        android:id="@+id/setalarm"
+        android:layout_width="160dp"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Set Alarm"
+        android:clickable="true"
+        android:background="@drawable/layout_bg"
+        android:textColor="#fff"
+        android:onClick="setAlarm"
+        android:layout_below="@+id/date_label"
+        android:layout_marginTop="34dp"
+         />
+
+
 </RelativeLayout>
