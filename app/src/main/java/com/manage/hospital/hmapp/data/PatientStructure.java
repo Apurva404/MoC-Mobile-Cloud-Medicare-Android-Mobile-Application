@@ -8,6 +8,7 @@ import org.json.JSONObject;
  */
 public class PatientStructure {
 
+    public String patient_id;
     public String patient_fname;
     public String patient_lname;
     public String dob;
@@ -18,6 +19,9 @@ public class PatientStructure {
     public String contact_num;
     public String address;
 
+    public String getPatient_id() {
+        return patient_id;
+    }
 
     public String getPatient_fname() {
         return patient_fname;
@@ -58,6 +62,7 @@ public class PatientStructure {
     public PatientStructure(JSONObject jsonObject){
 
         try {
+            patient_id=jsonObject.getString("Patient_Id");
             patient_fname=jsonObject.getString("Firstname");
             patient_lname=jsonObject.getString("Lastname");
             dob=jsonObject.getString("DOB");

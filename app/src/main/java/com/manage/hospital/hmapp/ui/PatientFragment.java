@@ -232,7 +232,6 @@ public class PatientFragment extends Fragment implements SwipeRefreshLayout.OnRe
                         patientItemClick(position);
                     }
                 });
-
             }
         }
     }

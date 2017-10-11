@@ -29,6 +29,7 @@
         <item>Appointments</item>
         <item>Doctors</item>
         <item>Reminders</item>
+        <item>Health Data Requests</item>
         <item>Emergency Contact</item>
         <item>Sources</item>
         <item>Log Out</item>
@@ -38,6 +39,7 @@
         <item>@drawable/ic_appointment</item>
         <item>@drawable/ic_doctor</item>
         <item>@drawable/ic_alarm</item>
+        <item>@drawable/ic_request</item>
         <item>@drawable/ic_contact</item>
         <item>@drawable/ic_sources</item>
         <item>@drawable/ic_logout</item>
@@ -191,6 +193,21 @@
     <string name="btn_deleteDoc_label">Delete</string>
     <string name="btn_viewRem_label">View</string>
     <string name="btn_deleteRem_label">Delete</string>
+
+
+    <!--Doctor Health Data Requests-->
+    <string name="doc_health_req_title">Health Data Requests</string>
+    <string name="doc_health_req_desc">Health Data Description</string>
+    <string name="dialog_request_title">Request</string>
+    <string name="doc_health_req_ok">OK</string>
+    <string name="doc_health_req_cancel">Cancel</string>
+    <string name="doc_health_req_success">Requests sent to the patient successfully.</string>
+    <string name="doc_health_req_failure">Request is not sent. Please try again!</string>
+    <string name="dialog_health_msg_ok">OK</string>
+
+
+    <!--Patient Health Data Requests-->
+    <string name="patient_health_req_title">Health Data Requests</string>
 
 
 

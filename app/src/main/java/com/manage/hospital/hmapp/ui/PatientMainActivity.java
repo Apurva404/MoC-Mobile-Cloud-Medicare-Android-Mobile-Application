@@ -139,6 +139,7 @@ public class PatientMainActivity extends AppCompatActivity implements PatientDas
         navDrawerItems.add(new NavDrawerItem(drawerTitleArray[4], drawerIconsArray.getResourceId(4,-1)));
         navDrawerItems.add(new NavDrawerItem(drawerTitleArray[5], drawerIconsArray.getResourceId(5,-1)));
         navDrawerItems.add(new NavDrawerItem(drawerTitleArray[6], drawerIconsArray.getResourceId(6,-1)));
+        navDrawerItems.add(new NavDrawerItem(drawerTitleArray[7], drawerIconsArray.getResourceId(7,-1)));
 
         menuListAdapter=new NavigationListAdapter(getApplicationContext(),navDrawerItems);
         drawerList.setAdapter(menuListAdapter);
@@ -214,15 +215,19 @@ public class PatientMainActivity extends AppCompatActivity implements PatientDas
                 startActivity(intent);
                 break;
             case 4:
+                intent=new Intent(PatientMainActivity.this,ActivityHealthDataRequests.class);
+                startActivity(intent);
+                break;
+            case 5:
                 intent = new Intent(this, ManageEmergencyContactActivity.class);
                 intent.putExtra("PatientId", patient_id);
                 startActivity(intent);
                 break;
-            case 5:
+            case 6:
                 Intent intent=new Intent(PatientMainActivity.this,PatientSourceActivity.class);
                 startActivity(intent);
                 break;
-            case 6:
+            case 7:
                 sessionManager.logoutUser();
                 break;
         }

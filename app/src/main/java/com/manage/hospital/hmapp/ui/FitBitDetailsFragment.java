@@ -108,6 +108,13 @@ public class FitBitDetailsFragment extends Fragment {
                 }
             }
         });
+
+        btnLogout.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
     }
 
 
