@@ -1,12 +1,15 @@
 # MoC-Mobile-Cloud-Medicare-Android-Mobile-Application
 An Android based health monitoring and fall detection mobile app, complemented by a J2EE based cloud backend on AWS, for the elderly. 
+
 Core Features: 
-o	Health data tracking via FitBit integration
-o	Patient-doctor engagement via appointment scheduling and health data exchange
-o	Automatic fall detection. In case of a detected fall,
-	Auto alert emergency contact
-	Auto share geo-location data
-	One touch 911 dialing
+ oHealth data tracking via FitBit integration
+ 
+ oPatient-doctor engagement via appointment scheduling and health data exchange
+ 
+ oAutomatic fall detection. In case of a detected fall,
+	Auto alert emergency contact
+	Auto share geo-location data
+	One touch 911 dialing
 Tools & Technologies: Android Studio 2.3 Java 1.8, Jersey , AWS EC2, AWS RDS, MySQL
 
 README:
