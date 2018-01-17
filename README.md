@@ -8,12 +8,9 @@ Core Features:
  -Patient-doctor engagement via appointment scheduling and health data exchange
  
  -Automatic fall detection. In case of a detected fall,
-	
-	Auto alert emergency contact
-	
-	Auto share geo-location data
-	
-	One touch 911 dialing
+ 	-Auto alert emergency contact
+	-Auto share geo-location data
+	-One touch 911 dialing
 Tools & Technologies: Android Studio 2.3 Java 1.8, Jersey , AWS EC2, AWS RDS, MySQL
 
 README:
