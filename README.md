@@ -1,16 +1,13 @@
 # MoC-Mobile-Cloud-Medicare-Android-Mobile-Application
-An Android based fall detection and health monitoring system for the elderly.
-Our project demonstrates the development of MoC (Mobile Cloud) Medicare, an Android mobile application, which uses AWS cloud and Fitbit to 
-detect collapsing patients and monitor their health data on a regular basis, which is then used for analysis by doctors.
-The application targets two types of users: Patients and Doctors. It keeps the relatives of patients involved in the process as well.
-MoC Medicare remotely monitors the patient’s health data and sends it to the associated doctors when required. The application focuses on 
-detecting the fall of a patient at any time, and notifies the emergency contact associated with the patient. This contact can be any 
-associated relative of the patient, he/she would like to call in times of emergencies. Alongside, the patients are also monitored by their 
-associated doctors. A patient can request for appointments from doctors, and upon acceptance, can forward their health data (received from 
-the wearable, sensor enabled device) to the doctors.Other functionalities available for the patients include listing their agendas as
-“tasks-to-do” or setting reminders e.g. for taking medicines. Simultaneously, Doctors get appointments once a patient requests for one. 
-Based on the availability they can either accept or reject the appointment. Once accepted, the patient gets added to the doctor’s patient 
-list, where he/she can always request for the health data of the patient for analysis.
+An Android based health monitoring and fall detection mobile app, complemented by a J2EE based cloud backend on AWS, for the elderly. 
+Core Features: 
+o	Health data tracking via FitBit integration
+o	Patient-doctor engagement via appointment scheduling and health data exchange
+o	Automatic fall detection. In case of a detected fall,
+	Auto alert emergency contact
+	Auto share geo-location data
+	One touch 911 dialing
+Tools & Technologies: Android Studio 2.3 Java 1.8, Jersey , AWS EC2, AWS RDS, MySQL
 
 README:
 1. Download/Transfer the .apk file of the project to your device
